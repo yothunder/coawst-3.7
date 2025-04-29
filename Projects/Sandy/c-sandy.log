@@ -1,0 +1,370 @@
+
+  ## WRF grid  1 sent data to ROMS grid  1
+ ## ROMS grid  1 recv data from WRF grid  1
+WRFtoROMS Min/Max  GSW     (Wm-2):     0.000000E+00  1.599517E+02
+WRFtoROMS Min/Max  GLW     (Wm-2):     0.000000E+00  4.313855E+02
+WRFtoROMS Min/Max  LH      (Wm-2):     0.000000E+00  8.821429E+02
+WRFtoROMS Min/Max  HFX     (Wm-2):    -6.438377E+01  3.175843E+02
+WRFtoROMS Min/Max  USTRESS (Nm-2):    -3.323076E-01  5.710930E-01
+WRFtoROMS Min/Max  VSTRESS (Nm-2):    -1.321695E+00  1.079808E+00
+WRFtoROMS Min/Max  MSLP    (mb):       0.000000E+00  1.012670E+03
+WRFtoROMS Min/Max  RELH    (-):        0.000000E+00  9.636853E-01
+WRFtoROMS Min/Max  T2      (C):        0.000000E+00  2.568014E+01
+WRFtoROMS Min/Max  RAIN  (kgm-2s-1):   0.000000E+00  2.312298E-03
+WRFtoROMS Min/Max  EVAP  (kgm-2s-1):   0.000000E+00  3.616786E-04
+  ## WRF grid  2 sent data to ROMS grid  1
+ ## ROMS grid  1 recv data from WRF grid  2
+WRFtoROMS Min/Max  GSW     (Wm-2):     0.000000E+00  1.139003E+02
+WRFtoROMS Min/Max  GLW     (Wm-2):     0.000000E+00  4.233114E+02
+WRFtoROMS Min/Max  LH      (Wm-2):     0.000000E+00  8.420293E+02
+WRFtoROMS Min/Max  HFX     (Wm-2):     0.000000E+00  2.991584E+02
+WRFtoROMS Min/Max  USTRESS (Nm-2):     0.000000E+00  6.011348E-01
+WRFtoROMS Min/Max  VSTRESS (Nm-2):    -7.508491E-03  8.028972E-01
+WRFtoROMS Min/Max  MSLP    (mb):       0.000000E+00  1.010592E+03
+WRFtoROMS Min/Max  RELH    (-):        0.000000E+00  8.907408E-01
+WRFtoROMS Min/Max  T2      (C):        0.000000E+00  2.425960E+01
+WRFtoROMS Min/Max  RAIN  (kgm-2s-1):   0.000000E+00  1.728698E-03
+WRFtoROMS Min/Max  EVAP  (kgm-2s-1):   0.000000E+00  3.452320E-04
+  ## WRF grid  1 sent data to ROMS grid  2
+ ## ROMS grid  2 recv data from WRF grid  1
+WRFtoROMS Min/Max  GSW     (Wm-2):     0.000000E+00  4.074411E+01
+WRFtoROMS Min/Max  GLW     (Wm-2):     0.000000E+00  3.970343E+02
+WRFtoROMS Min/Max  LH      (Wm-2):     0.000000E+00  5.102864E+02
+WRFtoROMS Min/Max  HFX     (Wm-2):    -2.391896E+01  2.696180E+02
+WRFtoROMS Min/Max  USTRESS (Nm-2):    -3.042540E-01  4.205272E-01
+WRFtoROMS Min/Max  VSTRESS (Nm-2):     0.000000E+00  1.089627E+00
+WRFtoROMS Min/Max  MSLP    (mb):       0.000000E+00  9.984010E+02
+WRFtoROMS Min/Max  RELH    (-):        0.000000E+00  9.209484E-01
+WRFtoROMS Min/Max  T2      (C):        0.000000E+00  2.090204E+01
+WRFtoROMS Min/Max  RAIN  (kgm-2s-1):   0.000000E+00  8.560503E-04
+WRFtoROMS Min/Max  EVAP  (kgm-2s-1):   0.000000E+00  2.092174E-04
+  ## WRF grid  2 sent data to ROMS grid  2
+ ## ROMS grid  2 recv data from WRF grid  2
+WRFtoROMS Min/Max  GSW     (Wm-2):     0.000000E+00  6.204606E+01
+WRFtoROMS Min/Max  GLW     (Wm-2):     0.000000E+00  4.045813E+02
+WRFtoROMS Min/Max  LH      (Wm-2):     0.000000E+00  8.841084E+02
+WRFtoROMS Min/Max  HFX     (Wm-2):     0.000000E+00  3.237389E+02
+WRFtoROMS Min/Max  USTRESS (Nm-2):     0.000000E+00  6.196466E-01
+WRFtoROMS Min/Max  VSTRESS (Nm-2):     0.000000E+00  8.372433E-01
+WRFtoROMS Min/Max  MSLP    (mb):       0.000000E+00  1.003486E+03
+WRFtoROMS Min/Max  RELH    (-):        0.000000E+00  9.102955E-01
+WRFtoROMS Min/Max  T2      (C):        0.000000E+00  2.147971E+01
+WRFtoROMS Min/Max  RAIN  (kgm-2s-1):   0.000000E+00  2.200843E-03
+WRFtoROMS Min/Max  EVAP  (kgm-2s-1):   0.000000E+00  3.624844E-04
+ ## WRF grid  1 recvd data from ROMS grid  1
+ ## ROMS grid  1  sent data to WRF grid  1
+ROMStoWRF  Min/Max SST     (K):        0.000000E+00  2.998729E+02
+ ## ROMS grid  1  sent data to WRF grid  2
+ ## WRF grid  2 recvd data from ROMS grid  1
+ROMStoWRF  Min/Max SST     (K):        0.000000E+00  2.992776E+02
+ ## ROMS grid  2  sent data to WRF grid  1
+ ## WRF grid  1 recvd data from ROMS grid  2
+ROMStoWRF  Min/Max SST     (K):        0.000000E+00  2.990768E+02
+ ## ROMS grid  2  sent data to WRF grid  2
+ ## WRF grid  2 recvd data from ROMS grid  2
+ROMStoWRF  Min/Max SST     (K):        0.000000E+00  2.991241E+02
++time 20121030.115700   , step    959; iteration    1; sweep 4 grid   1
++time 20121030.115530   , step   1917; iteration    1; sweep 1 grid   2
++time 20121030.115530   , step   1917; iteration    1; sweep 2 grid   2
++time 20121030.115530   , step   1917; iteration    1; sweep 3 grid   2
++time 20121030.115530   , step   1917; iteration    1; sweep 4 grid   2
++time 20121030.115700   , step   1918; iteration    1; sweep 1 grid   2
++time 20121030.115700   , step   1918; iteration    1; sweep 2 grid   2
++time 20121030.115700   , step   1918; iteration    1; sweep 3 grid   2
++time 20121030.115700   , step   1918; iteration    1; sweep 4 grid   2
++time 20121030.120000   , step    960; iteration    1; sweep 1 grid   1
++time 20121030.120000   , step    960; iteration    1; sweep 2 grid   1
++time 20121030.120000   , step    960; iteration    1; sweep 3 grid   1
++time 20121030.120000   , step    960; iteration    1; sweep 4 grid   1
++time 20121030.115830   , step   1919; iteration    1; sweep 1 grid   2
++time 20121030.115830   , step   1919; iteration    1; sweep 2 grid   2
++time 20121030.115830   , step   1919; iteration    1; sweep 3 grid   2
++time 20121030.115830   , step   1919; iteration    1; sweep 4 grid   2
++time 20121030.120000   , step   1920; iteration    1; sweep 1 grid   2
++time 20121030.120000   , step   1920; iteration    1; sweep 2 grid   2
++time 20121030.120000   , step   1920; iteration    1; sweep 3 grid   2
++time 20121030.120000   , step   1920; iteration    1; sweep 4 grid   2
+ == SWAN grid  1 sent wave data to ROMS grid  1
+ ** ROMS grid  1 recv data from SWAN grid  1
+SWANtoROMS Min/Max DISBOT  (Wm-2):     0.000000E+00  3.455629E-03
+SWANtoROMS Min/Max DISSURF (Wm-2):     0.000000E+00  2.894832E-04
+SWANtoROMS Min/Max DISWCAP (Wm-2):     0.000000E+00  1.732421E-03
+SWANtoROMS Min/Max HSIGN   (m):        0.000000E+00  7.076775E+00
+SWANtoROMS Min/Max RTP     (s):        0.000000E+00  1.671850E+01
+SWANtoROMS Min/Max TMBOT   (s):        0.000000E+00  2.499977E+01
+SWANtoROMS Min/Max DIR     (rad):      0.000000E+00  6.281980E+00
+SWANtoROMS Min/Max DIRP    (rad):      0.000000E+00  6.195919E+00
+SWANtoROMS Min/Max WLEN    (m):        1.000000E+00  1.753405E+02
+SWANtoROMS Min/Max WLENP   (m):        1.000000E+00  3.337252E+02
+ == SWAN grid  1 sent wave data to ROMS grid  2
+ ** ROMS grid  2 recv data from SWAN grid  1
+SWANtoROMS Min/Max DISBOT  (Wm-2):     0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max DISSURF (Wm-2):     0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max DISWCAP (Wm-2):     0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max HSIGN   (m):        0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max RTP     (s):        0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max TMBOT   (s):        0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max DIR     (rad):      0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max DIRP    (rad):      0.000000E+00  0.000000E+00
+SWANtoROMS Min/Max WLEN    (m):        1.000000E+00  1.000000E+00
+SWANtoROMS Min/Max WLENP   (m):        1.000000E+00  1.000000E+00
+ == SWAN grid  2 sent wave data to ROMS grid  1
+ ** ROMS grid  1 recv data from SWAN grid  2
+SWANtoROMS Min/Max DISBOT  (Wm-2):     0.000000E+00  2.824735E-03
+SWANtoROMS Min/Max DISSURF (Wm-2):     0.000000E+00  3.907056E-08
+SWANtoROMS Min/Max DISWCAP (Wm-2):     0.000000E+00  2.758487E-03
+SWANtoROMS Min/Max HSIGN   (m):        0.000000E+00  7.222444E+00
+SWANtoROMS Min/Max RTP     (s):        0.000000E+00  1.462009E+01
+SWANtoROMS Min/Max TMBOT   (s):        0.000000E+00  2.499972E+01
+SWANtoROMS Min/Max DIR     (rad):      0.000000E+00  6.167655E+00
+SWANtoROMS Min/Max DIRP    (rad):      0.000000E+00  6.195918E+00
+SWANtoROMS Min/Max WLEN    (m):        1.000000E+00  1.518405E+02
+SWANtoROMS Min/Max WLENP   (m):        1.000000E+00  2.552078E+02
+ == SWAN grid  2 sent wave data to ROMS grid  2
+ ** ROMS grid  2 recv data from SWAN grid  2
+SWANtoROMS Min/Max DISBOT  (Wm-2):     0.000000E+00  6.426826E-03
+SWANtoROMS Min/Max DISSURF (Wm-2):     0.000000E+00  4.252526E-04
+SWANtoROMS Min/Max DISWCAP (Wm-2):     0.000000E+00  2.952558E-03
+SWANtoROMS Min/Max HSIGN   (m):        0.000000E+00  7.238658E+00
+SWANtoROMS Min/Max RTP     (s):        0.000000E+00  1.671850E+01
+SWANtoROMS Min/Max TMBOT   (s):        0.000000E+00  2.499974E+01
+SWANtoROMS Min/Max DIR     (rad):      0.000000E+00  6.199709E+00
+SWANtoROMS Min/Max DIRP    (rad):      0.000000E+00  6.195919E+00
+SWANtoROMS Min/Max WLEN    (m):        1.000000E+00  1.533748E+02
+SWANtoROMS Min/Max WLENP   (m):        1.000000E+00  3.337252E+02
+ == SWAN grid  1 recv data from ROMS grid  1
+ROMStoSWAN Min/Max DEPTH   (m):        0.000000E+00  5.591338E+03
+ ** ROMS grid  1 sent data to SWAN grid  1
+ROMStoSWAN Min/Max WLEV    (m):       -2.966334E+00  1.375434E+00
+ROMStoSWAN Min/Max VELX    (ms-1):    -1.688228E+00  2.049987E+00
+ROMStoSWAN Min/Max VELY    (ms-1):    -1.478740E+00  1.720646E+00
+ROMStoSWAN Min/Max ZO      (m):        0.000000E+00  5.000000E-02
+ ** ROMS grid  2 sent data to SWAN grid  1
+ == SWAN grid  1 recv data from ROMS grid  2
+ROMStoSWAN Min/Max DEPTH   (m):        0.000000E+00  5.371508E+03
+ROMStoSWAN Min/Max WLEV    (m):       -4.679785E-01  1.438243E+00
+ROMStoSWAN Min/Max VELX    (ms-1):    -1.274397E+00  2.387674E+00
+ROMStoSWAN Min/Max VELY    (ms-1):    -1.498262E+00  2.936102E+00
+ROMStoSWAN Min/Max ZO      (m):        0.000000E+00  5.000000E-02
+ ** ROMS grid  1 sent data to SWAN grid  2
+ == SWAN grid  2 recv data from ROMS grid  1
+ROMStoSWAN Min/Max DEPTH   (m):        0.000000E+00  0.000000E+00
+ROMStoSWAN Min/Max WLEV    (m):        0.000000E+00  0.000000E+00
+ROMStoSWAN Min/Max VELX    (ms-1):     0.000000E+00  0.000000E+00
+ROMStoSWAN Min/Max VELY    (ms-1):     0.000000E+00  0.000000E+00
+ROMStoSWAN Min/Max ZO      (m):        0.000000E+00  0.000000E+00
+ ** ROMS grid  2 sent data to SWAN grid  2
+ == SWAN grid  2 recv data from ROMS grid  2
+ROMStoSWAN Min/Max DEPTH   (m):        0.000000E+00  5.384082E+03
+ROMStoSWAN Min/Max WLEV    (m):       -5.643045E-01  1.446360E+00
+ROMStoSWAN Min/Max VELX    (ms-1):    -1.659279E+00  2.416352E+00
+ROMStoSWAN Min/Max VELY    (ms-1):    -1.584969E+00  3.421510E+00
+ROMStoSWAN Min/Max ZO      (m):        0.000000E+00  5.000000E-02
+  ## WRF grid  1 sent data to WAVE grid  1
+ == SWAN grid  1 recv data from WRF grid 1
+WRFtoSWAN Min/Max  U10     (ms-1):    -1.156354E+01  1.462260E+01
+WRFtoSWAN Min/Max  V10     (ms-1):    -2.134178E+01  2.027634E+01
+  ## WRF grid  2 sent data to WAVE grid  1
+ == SWAN grid  1 recv data from WRF grid 2
+WRFtoSWAN Min/Max  U10     (ms-1):     0.000000E+00  1.459586E+01
+WRFtoSWAN Min/Max  V10     (ms-1):    -2.564830E-01  1.757666E+01
+  ## WRF grid  1 sent data to WAVE grid  2
+ == SWAN grid  2 recv data from WRF grid 1
+WRFtoSWAN Min/Max  U10     (ms-1):    -6.149818E+00  9.987676E+00
+WRFtoSWAN Min/Max  V10     (ms-1):     0.000000E+00  2.037761E+01
+  ## WRF grid  2 sent data to WAVE grid  2
+ == SWAN grid  2 recv data from WRF grid 2
+WRFtoSWAN Min/Max  U10     (ms-1):     0.000000E+00  1.437487E+01
+WRFtoSWAN Min/Max  V10     (ms-1):     0.000000E+00  1.760424E+01
+  ## WRF grid  1 recv data from WAVE grid  1
+ WAVtoWRF  Min/Max HSIGN   (m):        0.000000E+00  7.041027E+00
+ == SWAN grid  1 sent data to WRF grid     1
+ WAVtoWRF  Min/Max WLENP   (m):        0.000000E+00  3.337252E+02
+ WAVtoWRF  Min/Max RTP     (m):        0.000000E+00  1.570147E+01
+      WRT_HIS     - wrote history     fields (Index=1,1) in record = 97                    01
+      WRT_RST     - wrote re-start    fields (Index=1,1) in record = 2                     01
+ == SWAN grid  1 sent data to WRF grid     2
+  ## WRF grid  2 recv data from WAVE grid  1
+ WAVtoWRF  Min/Max HSIGN   (m):        0.000000E+00  5.810925E+00
+ WAVtoWRF  Min/Max WLENP   (m):        0.000000E+00  3.337252E+02
+ WAVtoWRF  Min/Max RTP     (m):        0.000000E+00  1.462009E+01
+ == SWAN grid  2 sent data to WRF grid     1
+  ## WRF grid  1 recv data from WAVE grid  2
+ WAVtoWRF  Min/Max HSIGN   (m):        0.000000E+00  7.198120E+00
+ WAVtoWRF  Min/Max WLENP   (m):        0.000000E+00  2.552078E+02
+ WAVtoWRF  Min/Max RTP     (m):        0.000000E+00  1.462009E+01
+ == SWAN grid  2 sent data to WRF grid     2
+  ## WRF grid  2 recv data from WAVE grid  2
+ WAVtoWRF  Min/Max HSIGN   (m):        0.000000E+00  6.232721E+00
+ WAVtoWRF  Min/Max WLENP   (m):        0.000000E+00  2.671412E+02
+ WAVtoWRF  Min/Max RTP     (m):        0.000000E+00  1.462009E+01
+Timing for main: time 2012-10-30_12:00:00 on domain   1:   17.17975 elapsed seconds
+Timing for main: time 2012-10-30_12:00:00 on domain   1:   17.17975 elapsed seconds
+     11520 2012-10-30 12:00:00.00  2.959866E-02  1.836327E+04  1.836329E+04  8.071933E+14  02
+                      (057,75,08)  5.650510E-03  1.044464E-03  3.804927E-02  4.659666E+00
+      WRT_HIS     - wrote history     fields (Index=1,1) in record = 97                    02
+      WRT_RST     - wrote re-start    fields (Index=1,1) in record = 2                     02
+
+Elapsed wall CPU time for each process (seconds):
+
+ Node   #    0 CPU:    6331.715
+ Total:                6331.715
+
+ Nonlinear model elapsed CPU time profile, Grid: 01
+
+  Allocation and array initialization ..............         0.110  ( 0.0017 %)
+  Ocean state initialization .......................         1.470  ( 0.0232 %)
+  Reading of input data ............................         0.111  ( 0.0018 %)
+  Processing of input data .........................         3.962  ( 0.0626 %)
+  Processing of output time averaged data ..........         1.520  ( 0.0240 %)
+  Computation of vertical boundary conditions ......         0.909  ( 0.0144 %)
+  Computation of global information integrals ......        10.512  ( 0.1660 %)
+  Writing of output data ...........................         4.555  ( 0.0719 %)
+  Model 2D kernel ..................................       172.529  ( 2.7248 %)
+  Tidal forcing ....................................         4.933  ( 0.0779 %)
+  2D/3D coupling, vertical metrics .................        23.734  ( 0.3748 %)
+  Omega vertical velocity ..........................        14.276  ( 0.2255 %)
+  Equation of state for seawater ...................        28.446  ( 0.4493 %)
+  Atmosphere-Ocean bulk flux parameterization ......         0.653  ( 0.0103 %)
+  GLS vertical mixing parameterization .............       260.822  ( 4.1193 %)
+  3D equations right-side terms ....................       208.568  ( 3.2940 %)
+  3D equations predictor step ......................        66.405  ( 1.0488 %)
+  Pressure gradient ................................        12.716  ( 0.2008 %)
+  Harmonic mixing of tracers, geopotentials ........        16.298  ( 0.2574 %)
+  Harmonic stress tensor, S-surfaces ...............         7.705  ( 0.1217 %)
+  Corrector time-step for 3D momentum ..............        32.388  ( 0.5115 %)
+  Corrector time-step for tracers ..................        40.573  ( 0.6408 %)
+  Nesting algorithm ................................        12.325  ( 0.1947 %)
+  Unused 07 ........................................      1958.530  (30.9321 %)
+                                              Total:      2884.052   45.5493 %
+
+ MPI communications profile, Grid: 01
+
+  Message Passage: 2D halo exchanges ...............         1.372  ( 0.0217 %)
+  Message Passage: 3D halo exchanges ...............         0.199  ( 0.0031 %)
+  Message Passage: 4D halo exchanges ...............         0.061  ( 0.0010 %)
+  Message Passage: data broadcast ..................         0.008  ( 0.0001 %)
+  Message Passage: data reduction ..................         0.061  ( 0.0010 %)
+  Message Passage: data gathering ..................         0.837  ( 0.0132 %)
+  Message Passage: data scattering..................         0.009  ( 0.0001 %)
+  Message Passage: boundary data gathering .........         0.054  ( 0.0008 %)
+  Message Passage: point data gathering ............         0.000  ( 0.0000 %)
+  Message Passage: nesting point data gathering ....         3.512  ( 0.0555 %)
+  Message Passage: synchronization barrier .........         0.000  ( 0.0000 %)
+                                              Total:         6.111    0.0965 %
+
+ Nonlinear model elapsed CPU time profile, Grid: 02
+
+  Allocation and array initialization ..............         0.110  ( 0.0017 %)
+  Ocean state initialization .......................         1.472  ( 0.0232 %)
+  Reading of input data ............................         0.065  ( 0.0010 %)
+  Processing of input data .........................        11.302  ( 0.1785 %)
+  Processing of output time averaged data ..........         7.494  ( 0.1184 %)
+  Computation of vertical boundary conditions ......         3.105  ( 0.0490 %)
+  Computation of global information integrals ......        29.249  ( 0.4619 %)
+  Writing of output data ...........................         8.726  ( 0.1378 %)
+  Model 2D kernel ..................................       672.445  (10.6203 %)
+  Tidal forcing ....................................         0.047  ( 0.0007 %)
+  2D/3D coupling, vertical metrics .................        38.095  ( 0.6017 %)
+  Omega vertical velocity ..........................        41.718  ( 0.6589 %)
+  Equation of state for seawater ...................        87.328  ( 1.3792 %)
+  Atmosphere-Ocean bulk flux parameterization ......         2.244  ( 0.0354 %)
+  GLS vertical mixing parameterization .............       901.181  (14.2328 %)
+  3D equations right-side terms ....................       798.158  (12.6057 %)
+  3D equations predictor step ......................       225.751  ( 3.5654 %)
+  Pressure gradient ................................        48.987  ( 0.7737 %)
+  Harmonic mixing of tracers, geopotentials ........        71.200  ( 1.1245 %)
+  Harmonic stress tensor, S-surfaces ...............        29.588  ( 0.4673 %)
+  Corrector time-step for 3D momentum ..............        97.685  ( 1.5428 %)
+  Corrector time-step for tracers ..................       144.576  ( 2.2834 %)
+  Nesting algorithm ................................       127.964  ( 2.0210 %)
+  Unused 07 ........................................        37.653  ( 0.5947 %)
+                                              Total:      3386.146   53.4791 %
+
+  Unique kernel(s) regions profiled ................      6270.197   99.0284 %
+  Residual, non-profiled code ......................        61.517    0.9716 %
+
+
+ All percentages are with respect to total time =         6331.715
+
+
+ MPI communications profile, Grid: 02
+
+  Message Passage: 2D halo exchanges ...............         3.045  ( 0.0481 %)
+  Message Passage: 3D halo exchanges ...............         0.410  ( 0.0065 %)
+  Message Passage: 4D halo exchanges ...............         0.120  ( 0.0019 %)
+  Message Passage: data broadcast ..................         0.008  ( 0.0001 %)
+  Message Passage: data reduction ..................         0.124  ( 0.0020 %)
+  Message Passage: data gathering ..................         2.000  ( 0.0316 %)
+  Message Passage: data scattering..................         0.015  ( 0.0002 %)
+  Message Passage: nesting point data gathering ....         0.387  ( 0.0061 %)
+  Message Passage: nesting array data gathering ....        58.924  ( 0.9306 %)
+                                              Total:        65.033    1.0271 %
+
+ MPI communications profile over all nested grids:
+
+  Message Passage: 2D halo exchanges ...............         4.417  ( 0.0698 %)
+  Message Passage: 3D halo exchanges ...............         0.609  ( 0.0096 %)
+  Message Passage: 4D halo exchanges ...............         0.181  ( 0.0029 %)
+  Message Passage: data broadcast ..................         0.016  ( 0.0003 %)
+  Message Passage: data reduction ..................         0.185  ( 0.0029 %)
+  Message Passage: data gathering ..................         2.838  ( 0.0448 %)
+  Message Passage: data scattering..................         0.023  ( 0.0004 %)
+  Message Passage: boundary data gathering .........         0.054  ( 0.0008 %)
+  Message Passage: point data gathering ............         0.000  ( 0.0000 %)
+  Message Passage: nesting point data gathering ....         3.899  ( 0.0616 %)
+  Message Passage: nesting array data gathering ....        58.924  ( 0.9306 %)
+  Message Passage: synchronization barrier .........         0.000  ( 0.0000 %)
+                                              Total:        71.145    1.1236 %
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ Dynamic and Automatic memory (MB) usage for Grid 01:  85x63x16  tiling: 1x1
+
+     tile          Dynamic        Automatic            USAGE      MPI-Buffers
+
+        0            64.55             6.18            70.73             1.47
+
+      SUM            64.55             6.18            70.73             1.47
+
+ Dynamic and Automatic memory (MB) usage for Grid 02:  114x84x16  tiling: 1x1
+
+     tile          Dynamic        Automatic            USAGE      MPI-Buffers
+
+        0           113.02            10.55           123.57             4.34
+
+      SUM           113.02            10.55           123.57             4.34
+
+    TOTAL           177.58            16.73           194.31             5.81
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+             number of time records written in HISTORY file = 97
+             number of time records written in RESTART file = 2
+             number of time records written in AVERAGE file = 13
+
+ ROMS/TOMS - Output NetCDF summary for Grid 02:
+             number of time records written in HISTORY file = 97
+             number of time records written in RESTART file = 2
+             number of time records written in AVERAGE file = 26
+
+ Analytical header files used:
+
+     ROMS/Functionals/ana_btflux.h
+     ROMS/Functionals/ana_fsobc.h
+     ROMS/Functionals/ana_m2obc.h
+     ROMS/Functionals/ana_nudgcoef.h
+     ROMS/Functionals/ana_srflux.h
+
+ ROMS/TOMS: DONE... Tuesday - April 29, 2025 - 12:36:44 PM
+Timing for Writing wrfout_d01_2012-10-30_12:00:00 for domain        1:    0.44723 elapsed seconds
+Timing for Writing wrfout_d01_2012-10-30_12:00:00 for domain        1:    0.44723 elapsed seconds
+d01 2012-10-30_12:00:00 wrf: SUCCESS COMPLETE WRF
+d01 2012-10-30_12:00:00 wrf: SUCCESS COMPLETE WRF
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
+
+[1]+  Done                    mpirun -np 3 ./coawstM coupling_sandy.in c-sandy.log 2>&1
+

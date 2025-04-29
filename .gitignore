@@ -1,0 +1,6 @@
+TPAR*
+wrfout*
+*.nc
+*.mat
+wrfinput*
+*.hot
