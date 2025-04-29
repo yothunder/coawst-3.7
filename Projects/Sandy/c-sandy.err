@@ -1,0 +1,7 @@
+slurmstepd: error: couldn't chdir to `/home/tr16/COAWST_3.7/Projects/Sandy': Stale file handle: going to /tmp instead
+slurmstepd: error: couldn't chdir to `/home/tr16/COAWST_3.7/Projects/Sandy': Stale file handle: going to /tmp instead
+slurmstepd: error: couldn't chdir to `/home/tr16/COAWST_3.7/Projects/Sandy': Stale file handle: going to /tmp instead
+slurmstepd: error: couldn't chdir to `/home/tr16/COAWST_3.7/Projects/Sandy': Stale file handle: going to /tmp instead
+slurmstepd: error: execve(): /tmp/./coawstM: No such file or directory
+slurmstepd: error: execve(): /tmp/./coawstM: No such file or directory
+slurmstepd: error: execve(): /tmp/./coawstM: No such file or directory

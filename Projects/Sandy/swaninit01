@@ -1,0 +1,15 @@
+    4                                   version of initialisation file
+Delft University of Technology          name of institute
+  601                                   command file ref. number
+/home/tr16/COAWST_3.7/Projects/Sandy/swacommand file name
+  501                                   print file ref. number
+PRINT01                                 print file name
+  501                                   test file ref. number
+                                        test file name
+    6                                   screen ref. number
+99999999                                highest file ref. number
+$                                       comment identifier
+	                                       TAB character
+\                                       dir sep char in input file
+/                                       dir sep char replacing previous one
+    1                                   default time coding option
