@@ -4,3 +4,10 @@ wrfout*
 *.mat
 wrfinput*
 *.hot
+wrfout*
+wrfinput*
+wrfbdy*
+coawstM
+wrflow*
+roms_rst*
+roms_hist*
