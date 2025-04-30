@@ -1,0 +1,63 @@
+
+$
+
+PROJECT 'KARIMUN' '001'
+SET 0 MAXERR 99  NAUTICAL  
+&MODE NONSTationary TWODimensional
+&COORDinates SPHE CCM
+
+MODE NONSTATIONARY TWODIMENSIONAL
+&SET DEPMIN 0.05 INRHOG 1 NAUTICAL PWTAIL 5
+COORDINATES SPHERICAL
+
+
+&& KEYWORD for number of nested SWAN grids.
+NSGRIDS 2
+
+&& KEYWORDS TO CREATE AND READ COMPUTATIONAL GRID &&
+CGRID CURVILINEAR 97 73 EXC 9.999000e+003 9.999000e+003 CIRCLE 24 0.04 1.0 28
+READGRID COORDINATES 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan3km.grd' 3 0 0 FREE 
+
+&& KEYWORDS TO CREATE AND READ BATHYMETRY GRID &&
+INPGRID BOTTOM CURVILINEAR 0 0 112 106 EXC 9.999000e+003
+READINP BOTTOM 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan3km.bot' 3 0 FREE 
+
+$******************** ERA5 Wind  *********************************************
+
+&& KEYWORD TO CREATE WIND GRID &&
+&INPGRID WIND REGULAR 100 -11 0 111 106 0.1 0.1 &
+&NONSTATIONARY 20221229.000000 6 HR 20221230.000000
+&READINP WIND 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan' 3 0 FREE
+
+$ Boundary and Initial Conditions ****************************************
+& BOUND SHAPESPEC JONSWAP PEAK DSPR DEGREES
+INITIAL DEFAULT
+						  
+$ PHYSICS  ****************************************
+&BREAKING CONSTANT 1.0 0.73
+BREaking CONstant gamma .78
+TRIad
+FRICTION
+&FRICTION MADSEN 0.05
+&OFF QUAD
+&GEN3 KOMEN
+GEN3 JANSSEN 4.5 0.9
+&WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
+PROP BSBT
+NUM ACCUR NONSTAT MXITNS=2
+
+$************************* Outputs ********************************
+$ Output/Satellite  Altimeter Tracks 
+
+&RESTART 'swan_ref3km_rst.dat' FREE 1 HR
+
+$
+
+& This command orders SWAN to start the computation(s).
+COMPUTE NONSTAT 20230501.000000 540 SEC 20230501.060000
+
+&HOTFILE 'karimun.hot'
+
+STOP
+
+

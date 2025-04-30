@@ -1,0 +1,19 @@
+    4                                   version of initialisation file
+Delft University of Technology          name of institute
+  602                                   command file ref. number
+/home/tr16/COAWST_3.7/Projects/karimun/scommand file name
+  502                                   print file ref. number
+PRINT02                                 print file name
+  502                                   test file ref. number
+                                        test file name
+    6                                   screen ref. number
+99999999                                highest file ref. number
+$                                       comment identifier
+	                                       TAB character
+\                                       dir sep char in input file
+/                                       dir sep char replacing previous one
+    1                                   default time coding option
+  100                                   speed of processor   1
+  100                                   speed of processor   2
+  100                                   speed of processor   3
+  100                                   speed of processor   4

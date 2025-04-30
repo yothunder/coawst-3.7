@@ -1,0 +1,2270 @@
+1
+
+                    Execution started at 20250430.163045         
+
+
+
+                    ---------------------------------------
+                                     SWAN
+                    SIMULATION OF WAVES IN NEAR SHORE AREAS
+                             VERSION NUMBER 41.31               
+                    ---------------------------------------
+
+
+    
+ 
+    
+ $
+    
+ 
+    
+ PROJECT 'KARIMUN' '001'
+    
+ SET 0 MAXERR 99  NAUTICAL
+    
+ &MODE NONSTationary TWODimensional
+ &COORDinates SPHE CCM
+ 
+    
+ MODE NONSTATIONARY TWODIMENSIONAL
+    
+ &SET DEPMIN 0.05 INRHOG 1 NAUTICAL PWTAIL 5
+ COORDINATES SPHERICAL
+    
+ 
+    
+ 
+    
+ && KEYWORD for number of nested SWAN grids.
+ NSGRIDS 2
+    
+ 
+    
+ && KEYWORDS TO CREATE AND READ COMPUTATIONAL GRID &&
+ CGRID CURVILINEAR 55 38 EXC 9.999000e+003 9.999000e+003 CIRCLE 24 0.04 1.0 28
+ Resolution in sigma-space: df/f =  0.1218
+    
+ READGRID COORDINATES 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan9km.grd' 3 0 0 FREE
+    
+ 
+    
+ && KEYWORDS TO CREATE AND READ BATHYMETRY GRID &&
+ INPGRID BOTTOM CURVILINEAR 0 0 55 38 EXC 9.999000e+003
+    
+ READINP BOTTOM 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan9km.bot' 3 0 FREE
+    
+ 
+    
+ $******************** ERA5 Wind  *********************************************
+    
+ 
+    
+ && KEYWORD TO CREATE WIND GRID &&
+ &INPGRID WIND REGULAR 100 -11 0 111 106 0.1 0.1 &
+ &NONSTATIONARY 20221229.000000 6 HR 20221230.000000
+ &READINP WIND 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan' 3 0 FREE
+ 
+    
+ $ Boundary and Initial Conditions ****************************************
+    
+ & BOUND SHAPESPEC JONSWAP PEAK DSPR DEGREES
+ & BOUNd SHAPespec JONswap 1.1 PEAK POWer
+ 
+    
+ &BOUndspec SEGMent XY 108.600000000000 -3.433689756915 109.086037999545 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 108.600000000000 -6.500000000000 109.086037999545 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 109.167044332803 -3.433689756915 109.572075999091 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_2.txt'
+ &BOUndspec SEGMent XY 109.167044332803 -6.500000000000 109.572075999091 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_2.txt'
+ &BOUndspec SEGMent XY 109.653082332348 -3.433689756915 110.139120331894 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_3.txt'
+ &BOUndspec SEGMent XY 109.653082332348 -6.500000000000 110.139120331894 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_3.txt'
+ &BOUndspec SEGMent XY 110.220126665151 -3.433689756915 110.625158331439 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_4.txt'
+ &BOUndspec SEGMent XY 110.220126665151 -6.500000000000 110.625158331439 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_4.txt'
+ &BOUndspec SEGMent XY 110.706164664697 -3.433689756915 111.111196330985 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_5.txt'
+ &BOUndspec SEGMent XY 110.706164664697 -6.500000000000 111.111196330985 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_5.txt'
+ &BOUndspec SEGMent XY 111.192202664242 -3.433689756915 111.597234330530 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_6.txt'
+ &BOUndspec SEGMent XY 111.192202664242 -6.500000000000 111.597234330530 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_6.txt'
+ &BOUndspec SEGMent XY 111.678240663788 -3.433689756915 112.083272330076 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_7.txt'
+ &BOUndspec SEGMent XY 111.678240663788 -6.500000000000 112.083272330076 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_7.txt'
+ &BOUndspec SEGMent XY 112.164278663333 -3.433689756915 113.055348329167 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_8.txt'
+ &BOUndspec SEGMent XY 112.164278663333 -6.500000000000 113.055348329167 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_8.txt'
+ BOUndspec SEGMent XY 113.055348329167 -6.500000000000 113.055348329167 -6.016860102273 CONSTANT  FILE 'tpar/BCEast_Jun2023_1.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -6.500000000000 108.600000000000 -6.016860102273 CONSTANT  FILE 'tpar/BCWest_Jun2023_1.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -5.936294082141 113.055348329167 -5.533290416212 CONSTANT  FILE 'tpar/BCEast_Jun2023_2.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -5.936294082141 108.600000000000 -5.533290416212 CONSTANT  FILE 'tpar/BCWest_Jun2023_2.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -5.452656075237 113.055348329167 -4.968628067937 CONSTANT  FILE 'tpar/BCEast_Jun2023_3.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -5.452656075237 108.600000000000 -4.968628067937 CONSTANT  FILE 'tpar/BCWest_Jun2023_3.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -4.887921220014 113.055348329167 -4.484244315258 CONSTANT  FILE 'tpar/BCEast_Jun2023_4.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -4.887921220014 108.600000000000 -4.484244315258 CONSTANT  FILE 'tpar/BCWest_Jun2023_4.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -4.403481515868 113.055348329167 -3.999539199045 CONSTANT  FILE 'tpar/BCEast_Jun2023_5.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -4.403481515868 108.600000000000 -3.999539199045 CONSTANT  FILE 'tpar/BCWest_Jun2023_5.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -3.918726189982 113.055348329167 -3.433689756915 CONSTANT  FILE 'tpar/BCEast_Jun2023_6.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -3.918726189982 108.600000000000 -3.433689756915 CONSTANT  FILE 'tpar/BCWest_Jun2023_6.txt'
+    
+ 
+    
+ &BOUndspec SEGMent XY 108.5 -3.4 113.1 -3.4 CONstant File 'tpar/BCNorth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 108.5 -6.6 113.1 -6.6 CONstant File 'tpar/BCSouth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY -3.4 113.1 -6.6 113.1 CONstant File 'tpar/BCEast_Jun2023_1.txt'
+ &BOUndspec SEGMent XY -3.4 108.5 -6.6 108.5 CONstant File 'tpar/BCWest_Jun2023_1.txt'
+ 
+    
+ &INITIAL DEFAULT
+ 						
+    
+ $ PHYSICS  ****************************************
+    
+ &BREAKING CONSTANT 1.0 0.73
+ BREaking CONstant gamma .78
+    
+ TRIad
+    
+ FRICTION
+    
+ &FRICTION MADSEN 0.05
+ OFF QUAD
+    
+ &GEN3 KOMEN
+ GEN3 JANSSEN 4.5 0.9
+    
+ &WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
+ PROP BSBT
+    
+ NUM ACCUR NONSTAT MXITNS=2
+    
+ 
+    
+ $************************* Outputs ********************************
+    
+ $ Output/Satellite  Altimeter Tracks
+    
+ 
+    
+ &RESTART 'swan_ref3km_rst.dat' FREE 1 HR
+ 
+    
+ $
+    
+ 
+    
+ & This command orders SWAN to start the computation(s).
+ COMPUTE NONSTAT 20230501.000000 540 SEC 20230501.060000
+ ** Warning          : Limiter is de-activated in case of no quadruplets
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ Boundary data type TPAR processed, time:           0.
+ ** Warning          : no output requested
+ Time of computation ->  20230501.000900      in sec:        540.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+ Boundary data type TPAR processed, time:        3600.
+
+----------------------------------------------------------------
+                  COMPUTATIONAL PART OF SWAN
+----------------------------------------------------------------
+
+ Gridresolution       : MXC              17 MYC             39
+                      : MCGRD           664
+                      : MSC              29 MDC             24
+                      : MTC              40
+                      : NSTATC            1 ITERMX           2
+ Propagation flags    : ITFRE             1 IREFR            1
+ Source term flags    : IBOT              1 ISURF            1
+                      : IWCAP             2 IWIND            0
+                      : ITRIAD           11 IQUAD            2
+                      : IVEG              0 ITURBV           0
+                      : IMUD              0 IICE             0
+ Spatial step         : DX       0.0000E+00 DY      0.0000E+00
+ Spectral bin         : df/f     0.1218E+00 DDIR    0.1500E+02
+ Physical constants   : GRAV     0.9810E+01 RHO     0.1025E+04
+ Wind input           : WSPEED   0.0000E+00 DIR     0.0000E+00
+                      : ICEWIND  0.00
+ Tail parameters      : E(f)     0.5000E+01 E(k)    0.2500E+01
+                      : A(f)     0.6000E+01 A(k)    0.3000E+01
+ Accuracy parameters  : DREL     0.1000E-01 NPNTS   0.9950E+02
+                      : DHOVAL   0.5000E-02 DTOVAL  0.1000E+04
+                      : GRWMX    0.1000E+00
+ Drying/flooding      : LEVEL    0.0000E+00 DEPMIN  0.5000E-01
+ The nautical  convention for wind and wave directions is used
+ Scheme for geographic propagation is BSBT  
+ Scheme geogr. space  : PROPSC            1 ICMAX            5
+ Scheme spectral space: CSS      0.5000E+00 CDD     0.5000E+00
+ Current is off
+ Quadruplets          : IQUAD             2
+                      : LAMBDA   0.2500E+00 CNL4    0.3000E+08
+                      : CSH1     0.5500E+01 CSH2    0.8330E+00
+                      : CSH3    -0.1250E+01
+ Maximum Ursell nr for Snl4 :    0.1000E+02
+ Triads               : ITRIAD           11 TRFAC   0.5000E-01
+                      : CUTFR    0.2500E+01 URCRI   0.2000E+00
+ Minimum Ursell nr for Snl3 :    0.1000E-01
+ JONSWAP (`73)        : GAMMA    0.3800E-01
+ Vegetation is off
+ Turbulence is off
+ Fluid mud is off
+ Dissipation by sea ice is off
+ W-cap Janssen (`90)  : CFJANS   0.4500E+01 DELTA   0.9000E+00
+ Battjes&Janssen (`78): ALPHA    0.1000E+01 GAMMA   0.7800E+00
+ Set-up is off
+ Diffraction is off
+ Janssen (`89,`90)    : ALPHA    0.1000E-01 KAPPA   0.4100E+00
+ Janssen (`89,`90)    : RHOA     0.1280E+01 RHOW    0.1025E+04
+
+ 1st and 2nd gen. wind: CF10     0.1880E+03 CF20    0.5900E+00
+                      : CF30     0.1200E+00 CF40    0.2500E+03
+                      : CF50     0.2300E-02 CF60   -0.2230E+00
+                      : CF70     0.0000E+00 CF80   -0.5600E+00
+                      : RHOAW    0.1249E-02 EDMLPM  0.3600E-02
+                      : CDRAG    0.1230E-02 UMIN    0.1000E+01
+                      : LIM_PM   0.1300E+00
+
++time 20230501.000900   , step      1; iteration    1; sweep 1 grid   1
++time 20230501.000900   , step      1; iteration    1; sweep 2 grid   1
++time 20230501.000900   , step      1; iteration    1; sweep 3 grid   1
++time 20230501.000900   , step      1; iteration    1; sweep 4 grid   1
+ accuracy OK in  84.80 % of wet grid points ( 99.50 % required)
+
++time 20230501.000900   , step      1; iteration    2; sweep 1 grid   1
++time 20230501.000900   , step      1; iteration    2; sweep 2 grid   1
++time 20230501.000900   , step      1; iteration    2; sweep 3 grid   1
++time 20230501.000900   , step      1; iteration    2; sweep 4 grid   1
+ accuracy OK in  99.45 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.001800      in sec:       1080.
++time 20230501.001800   , step      2; iteration    1; sweep 1 grid   1
++time 20230501.001800   , step      2; iteration    1; sweep 2 grid   1
++time 20230501.001800   , step      2; iteration    1; sweep 3 grid   1
++time 20230501.001800   , step      2; iteration    1; sweep 4 grid   1
+ accuracy OK in  84.75 % of wet grid points ( 99.50 % required)
+
++time 20230501.001800   , step      2; iteration    2; sweep 1 grid   1
++time 20230501.001800   , step      2; iteration    2; sweep 2 grid   1
++time 20230501.001800   , step      2; iteration    2; sweep 3 grid   1
++time 20230501.001800   , step      2; iteration    2; sweep 4 grid   1
+ accuracy OK in 100.00 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    19     20       0.20       0.18       0.10
+     1    18     19       0.20       0.18       0.10
+     1    17     18       0.20       0.18       0.10
+     1    16     17       0.20       0.18       0.10
+     1    15     16       0.20       0.18       0.10
+     1    14     15       0.20       0.18       0.10
+     1    12     13       0.19       0.17       0.10
+     1    11     12       0.19       0.17       0.10
+     1    10     11       0.19       0.17       0.10
+     1     9     10       0.19       0.17       0.10
+     1     8      9       0.19       0.17       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.002700      in sec:       1620.
++time 20230501.002700   , step      3; iteration    1; sweep 1 grid   1
++time 20230501.002700   , step      3; iteration    1; sweep 2 grid   1
++time 20230501.002700   , step      3; iteration    1; sweep 3 grid   1
++time 20230501.002700   , step      3; iteration    1; sweep 4 grid   1
+ accuracy OK in  83.10 % of wet grid points ( 99.50 % required)
+
++time 20230501.002700   , step      3; iteration    2; sweep 1 grid   1
++time 20230501.002700   , step      3; iteration    2; sweep 2 grid   1
++time 20230501.002700   , step      3; iteration    2; sweep 3 grid   1
++time 20230501.002700   , step      3; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.63 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.17       0.12
+     1    37     38       0.20       0.17       0.14
+     1    36     37       0.20       0.17       0.14
+     1    35     36       0.20       0.17       0.14
+     1    34     35       0.20       0.17       0.14
+     1    33     34       0.20       0.17       0.14
+     1    32     33       0.21       0.18       0.13
+     1    31     32       0.21       0.18       0.13
+     1    30     31       0.21       0.18       0.13
+     1    29     30       0.21       0.18       0.13
+     1    28     29       0.21       0.18       0.13
+     1    27     28       0.21       0.18       0.13
+     1    26     27       0.21       0.18       0.13
+     1    25     26       0.21       0.18       0.13
+     1    24     25       0.21       0.18       0.13
+     1    23     24       0.21       0.18       0.13
+     1    22     23       0.21       0.18       0.13
+     1    21     22       0.21       0.18       0.13
+     1    20     21       0.20       0.17       0.13
+     1    19     20       0.20       0.17       0.14
+     1    18     19       0.20       0.17       0.15
+     1    17     18       0.20       0.17       0.15
+     1    16     17       0.20       0.17       0.15
+     1    15     16       0.20       0.17       0.15
+     1    14     15       0.20       0.17       0.15
+     1    13     14       0.19       0.17       0.14
+     1    12     13       0.19       0.16       0.14
+     1    11     12       0.19       0.16       0.15
+     1    10     11       0.19       0.16       0.15
+     1     9     10       0.19       0.16       0.15
+     1     8      9       0.19       0.16       0.15
+     1     7      8       0.18       0.15       0.14
+     1     6      7       0.18       0.15       0.13
+     1     5      6       0.18       0.15       0.13
+     1     4      5       0.18       0.15       0.13
+     1     3      4       0.18       0.15       0.13
+     1     2      3       0.18       0.15       0.13
+     1     1      2       0.18       0.15       0.13
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.003600      in sec:       2160.
++time 20230501.003600   , step      4; iteration    1; sweep 1 grid   1
++time 20230501.003600   , step      4; iteration    1; sweep 2 grid   1
++time 20230501.003600   , step      4; iteration    1; sweep 3 grid   1
++time 20230501.003600   , step      4; iteration    1; sweep 4 grid   1
+ accuracy OK in  82.60 % of wet grid points ( 99.50 % required)
+
++time 20230501.003600   , step      4; iteration    2; sweep 1 grid   1
++time 20230501.003600   , step      4; iteration    2; sweep 2 grid   1
++time 20230501.003600   , step      4; iteration    2; sweep 3 grid   1
++time 20230501.003600   , step      4; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.17       0.15
+     1    37     38       0.20       0.16       0.17
+     1    36     37       0.20       0.16       0.18
+     1    35     36       0.20       0.16       0.18
+     1    34     35       0.20       0.16       0.18
+     1    33     34       0.20       0.16       0.18
+     1    32     33       0.21       0.17       0.17
+     1    31     32       0.21       0.18       0.16
+     1    30     31       0.21       0.18       0.16
+     1    29     30       0.21       0.18       0.16
+     1    28     29       0.21       0.18       0.16
+     1    27     28       0.21       0.18       0.16
+     1    26     27       0.21       0.17       0.16
+     1    25     26       0.21       0.17       0.17
+     1    24     25       0.21       0.17       0.17
+     1    23     24       0.21       0.17       0.17
+     1    22     23       0.21       0.17       0.17
+     1    21     22       0.21       0.17       0.17
+     1    20     21       0.20       0.17       0.17
+     1    19     20       0.20       0.16       0.18
+     1    18     19       0.20       0.16       0.19
+     1    17     18       0.20       0.16       0.19
+     1    16     17       0.20       0.16       0.19
+     1    15     16       0.20       0.16       0.19
+     1    14     15       0.20       0.16       0.19
+     1    13     14       0.19       0.16       0.18
+     1    12     13       0.19       0.16       0.19
+     1    11     12       0.19       0.16       0.19
+     1    10     11       0.19       0.16       0.19
+     1     9     10       0.19       0.16       0.19
+     1     8      9       0.19       0.16       0.19
+     1     7      8       0.18       0.15       0.17
+     1     6      7       0.18       0.15       0.17
+     1     5      6       0.18       0.15       0.17
+     1     4      5       0.18       0.15       0.17
+     1     3      4       0.18       0.15       0.17
+     1     2      3       0.18       0.15       0.17
+     1     1      2       0.18       0.15       0.17
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.004500      in sec:       2700.
++time 20230501.004500   , step      5; iteration    1; sweep 1 grid   1
++time 20230501.004500   , step      5; iteration    1; sweep 2 grid   1
++time 20230501.004500   , step      5; iteration    1; sweep 3 grid   1
++time 20230501.004500   , step      5; iteration    1; sweep 4 grid   1
+ accuracy OK in  81.41 % of wet grid points ( 99.50 % required)
+
++time 20230501.004500   , step      5; iteration    2; sweep 1 grid   1
++time 20230501.004500   , step      5; iteration    2; sweep 2 grid   1
++time 20230501.004500   , step      5; iteration    2; sweep 3 grid   1
++time 20230501.004500   , step      5; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.16       0.18
+     1    37     38       0.20       0.16       0.21
+     1    36     37       0.20       0.15       0.21
+     1    35     36       0.20       0.15       0.21
+     1    34     35       0.20       0.15       0.21
+     1    33     34       0.20       0.15       0.21
+     1    32     33       0.21       0.17       0.20
+     1    31     32       0.21       0.17       0.19
+     1    30     31       0.21       0.17       0.19
+     1    29     30       0.21       0.17       0.19
+     1    28     29       0.21       0.17       0.19
+     1    27     28       0.21       0.17       0.19
+     1    26     27       0.21       0.17       0.19
+     1    25     26       0.21       0.17       0.20
+     1    24     25       0.21       0.17       0.20
+     1    23     24       0.21       0.17       0.20
+     1    22     23       0.21       0.17       0.20
+     1    21     22       0.21       0.17       0.20
+     1    20     21       0.20       0.16       0.20
+     1    19     20       0.20       0.16       0.21
+     1    18     19       0.20       0.16       0.22
+     1    17     18       0.20       0.16       0.22
+     1    16     17       0.20       0.16       0.22
+     1    15     16       0.20       0.16       0.22
+     1    14     15       0.20       0.16       0.22
+     1    13     14       0.19       0.15       0.22
+     1    12     13       0.19       0.15       0.22
+     1    11     12       0.19       0.15       0.23
+     1    10     11       0.19       0.15       0.23
+     1     9     10       0.19       0.15       0.23
+     1     8      9       0.19       0.15       0.23
+     1     7      8       0.18       0.14       0.21
+     1     6      7       0.18       0.14       0.20
+     1     5      6       0.18       0.14       0.20
+     1     4      5       0.18       0.14       0.20
+     1     3      4       0.18       0.14       0.20
+     1     2      3       0.18       0.14       0.20
+     1     1      2       0.18       0.14       0.20
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.005400      in sec:       3240.
++time 20230501.005400   , step      6; iteration    1; sweep 1 grid   1
++time 20230501.005400   , step      6; iteration    1; sweep 2 grid   1
++time 20230501.005400   , step      6; iteration    1; sweep 3 grid   1
++time 20230501.005400   , step      6; iteration    1; sweep 4 grid   1
+ accuracy OK in  81.32 % of wet grid points ( 99.50 % required)
+
++time 20230501.005400   , step      6; iteration    2; sweep 1 grid   1
++time 20230501.005400   , step      6; iteration    2; sweep 2 grid   1
++time 20230501.005400   , step      6; iteration    2; sweep 3 grid   1
++time 20230501.005400   , step      6; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.16       0.20
+     1    37     38       0.20       0.15       0.23
+     1    36     37       0.20       0.15       0.23
+     1    35     36       0.20       0.15       0.23
+     1    34     35       0.20       0.15       0.23
+     1    33     34       0.20       0.15       0.23
+     1    32     33       0.21       0.16       0.22
+     1    31     32       0.21       0.16       0.21
+     1    30     31       0.21       0.16       0.21
+     1    29     30       0.21       0.16       0.21
+     1    28     29       0.21       0.16       0.21
+     1    27     28       0.21       0.16       0.21
+     1    26     27       0.21       0.16       0.21
+     1    25     26       0.21       0.16       0.22
+     1    24     25       0.21       0.16       0.22
+     1    23     24       0.21       0.16       0.22
+     1    22     23       0.21       0.16       0.22
+     1    21     22       0.21       0.16       0.22
+     1    20     21       0.20       0.16       0.22
+     1    19     20       0.20       0.15       0.24
+     1    18     19       0.20       0.15       0.24
+     1    17     18       0.20       0.15       0.24
+     1    16     17       0.20       0.15       0.24
+     1    15     16       0.20       0.15       0.24
+     1    14     15       0.20       0.15       0.24
+     1    13     14       0.19       0.15       0.24
+     1    12     13       0.19       0.14       0.25
+     1    11     12       0.19       0.14       0.25
+     1    10     11       0.19       0.14       0.25
+     1     9     10       0.19       0.14       0.25
+     1     8      9       0.19       0.14       0.25
+     1     7      8       0.18       0.13       0.24
+     1     6      7       0.18       0.14       0.24
+     1     5      6       0.18       0.14       0.23
+     1     4      5       0.18       0.14       0.23
+     1     3      4       0.18       0.14       0.23
+     1     2      3       0.18       0.14       0.23
+     1     1      2       0.18       0.14       0.23
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.010300      in sec:       3780.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
+ Boundary data type TPAR processed, time:        7200.
++time 20230501.010300   , step      7; iteration    1; sweep 1 grid   1
++time 20230501.010300   , step      7; iteration    1; sweep 2 grid   1
++time 20230501.010300   , step      7; iteration    1; sweep 3 grid   1
++time 20230501.010300   , step      7; iteration    1; sweep 4 grid   1
+ accuracy OK in  79.85 % of wet grid points ( 99.50 % required)
+
++time 20230501.010300   , step      7; iteration    2; sweep 1 grid   1
++time 20230501.010300   , step      7; iteration    2; sweep 2 grid   1
++time 20230501.010300   , step      7; iteration    2; sweep 3 grid   1
++time 20230501.010300   , step      7; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.21
+     1    37     38       0.20       0.15       0.24
+     1    36     37       0.20       0.15       0.25
+     1    35     36       0.20       0.15       0.25
+     1    34     35       0.20       0.15       0.25
+     1    33     34       0.20       0.15       0.25
+     1    32     33       0.21       0.16       0.23
+     1    31     32       0.21       0.16       0.22
+     1    30     31       0.21       0.16       0.22
+     1    29     30       0.21       0.16       0.22
+     1    28     29       0.21       0.16       0.22
+     1    27     28       0.21       0.16       0.22
+     1    26     27       0.21       0.16       0.22
+     1    25     26       0.21       0.16       0.24
+     1    24     25       0.21       0.16       0.24
+     1    23     24       0.21       0.16       0.24
+     1    22     23       0.21       0.16       0.24
+     1    21     22       0.21       0.16       0.24
+     1    20     21       0.20       0.15       0.25
+     1    19     20       0.20       0.15       0.26
+     1    18     19       0.20       0.15       0.27
+     1    17     18       0.20       0.15       0.27
+     1    16     17       0.20       0.15       0.27
+     1    15     16       0.20       0.15       0.27
+     1    14     15       0.20       0.15       0.27
+     1    13     14       0.19       0.14       0.27
+     1    12     13       0.19       0.14       0.28
+     1    11     12       0.19       0.14       0.28
+     1    10     11       0.19       0.14       0.28
+     1     9     10       0.19       0.14       0.28
+     1     8      9       0.19       0.14       0.28
+     1     7      8       0.18       0.13       0.27
+     1     6      7       0.18       0.13       0.27
+     1     5      6       0.18       0.13       0.27
+     1     4      5       0.18       0.13       0.26
+     1     3      4       0.18       0.13       0.26
+     1     2      3       0.18       0.13       0.26
+     1     1      2       0.18       0.13       0.27
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.011200      in sec:       4320.
++time 20230501.011200   , step      8; iteration    1; sweep 1 grid   1
++time 20230501.011200   , step      8; iteration    1; sweep 2 grid   1
++time 20230501.011200   , step      8; iteration    1; sweep 3 grid   1
++time 20230501.011200   , step      8; iteration    1; sweep 4 grid   1
+ accuracy OK in  81.18 % of wet grid points ( 99.50 % required)
+
++time 20230501.011200   , step      8; iteration    2; sweep 1 grid   1
++time 20230501.011200   , step      8; iteration    2; sweep 2 grid   1
++time 20230501.011200   , step      8; iteration    2; sweep 3 grid   1
++time 20230501.011200   , step      8; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.23
+     1    37     38       0.20       0.14       0.26
+     1    36     37       0.20       0.14       0.27
+     1    35     36       0.20       0.14       0.27
+     1    34     35       0.20       0.14       0.27
+     1    33     34       0.20       0.14       0.27
+     1    32     33       0.21       0.16       0.24
+     1    31     32       0.21       0.16       0.24
+     1    30     31       0.21       0.16       0.23
+     1    29     30       0.21       0.16       0.23
+     1    28     29       0.21       0.16       0.23
+     1    27     28       0.21       0.16       0.23
+     1    26     27       0.21       0.16       0.25
+     1    25     26       0.21       0.15       0.26
+     1    24     25       0.21       0.15       0.27
+     1    23     24       0.21       0.15       0.27
+     1    22     23       0.21       0.15       0.27
+     1    21     22       0.21       0.15       0.27
+     1    20     21       0.20       0.15       0.28
+     1    19     20       0.20       0.14       0.30
+     1    18     19       0.20       0.14       0.30
+     1    17     18       0.20       0.14       0.31
+     1    16     17       0.20       0.14       0.31
+     1    15     16       0.20       0.14       0.31
+     1    14     15       0.20       0.14       0.31
+     1    13     14       0.19       0.13       0.31
+     1    12     13       0.19       0.13       0.32
+     1    11     12       0.19       0.13       0.32
+     1    10     11       0.19       0.13       0.32
+     1     9     10       0.19       0.13       0.32
+     1     8      9       0.19       0.13       0.32
+     1     7      8       0.18       0.13       0.31
+     1     6      7       0.18       0.12       0.31
+     1     5      6       0.18       0.13       0.31
+     1     4      5       0.18       0.13       0.30
+     1     3      4       0.18       0.13       0.30
+     1     2      3       0.18       0.13       0.30
+     1     1      2       0.18       0.13       0.31
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.012100      in sec:       4860.
++time 20230501.012100   , step      9; iteration    1; sweep 1 grid   1
++time 20230501.012100   , step      9; iteration    1; sweep 2 grid   1
++time 20230501.012100   , step      9; iteration    1; sweep 3 grid   1
++time 20230501.012100   , step      9; iteration    1; sweep 4 grid   1
+ accuracy OK in  80.31 % of wet grid points ( 99.50 % required)
+
++time 20230501.012100   , step      9; iteration    2; sweep 1 grid   1
++time 20230501.012100   , step      9; iteration    2; sweep 2 grid   1
++time 20230501.012100   , step      9; iteration    2; sweep 3 grid   1
++time 20230501.012100   , step      9; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.24
+     1    37     38       0.20       0.14       0.28
+     1    36     37       0.20       0.14       0.28
+     1    35     36       0.20       0.14       0.29
+     1    34     35       0.20       0.14       0.29
+     1    33     34       0.20       0.14       0.29
+     1    32     33       0.21       0.15       0.25
+     1    31     32       0.21       0.16       0.24
+     1    30     31       0.21       0.16       0.24
+     1    29     30       0.21       0.16       0.24
+     1    28     29       0.21       0.16       0.24
+     1    27     28       0.21       0.16       0.24
+     1    26     27       0.21       0.15       0.27
+     1    25     26       0.21       0.15       0.29
+     1    24     25       0.21       0.15       0.29
+     1    23     24       0.21       0.15       0.29
+     1    22     23       0.21       0.15       0.29
+     1    21     22       0.21       0.15       0.29
+     1    20     21       0.20       0.14       0.32
+     1    19     20       0.20       0.14       0.33
+     1    18     19       0.20       0.14       0.33
+     1    17     18       0.20       0.14       0.33
+     1    16     17       0.20       0.14       0.33
+     1    15     16       0.20       0.14       0.33
+     1    14     15       0.20       0.14       0.33
+     1    13     14       0.20       0.13       0.35
+     1    12     13       0.20       0.13       0.36
+     1    11     12       0.20       0.13       0.36
+     1    10     11       0.20       0.13       0.36
+     1     9     10       0.20       0.13       0.36
+     1     8      9       0.20       0.13       0.36
+     1     7      8       0.18       0.12       0.33
+     1     6      7       0.18       0.12       0.34
+     1     5      6       0.18       0.12       0.34
+     1     4      5       0.18       0.12       0.34
+     1     3      4       0.18       0.12       0.34
+     1     2      3       0.18       0.12       0.34
+     1     1      2       0.18       0.12       0.34
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.013000      in sec:       5400.
++time 20230501.013000   , step     10; iteration    1; sweep 1 grid   1
++time 20230501.013000   , step     10; iteration    1; sweep 2 grid   1
++time 20230501.013000   , step     10; iteration    1; sweep 3 grid   1
++time 20230501.013000   , step     10; iteration    1; sweep 4 grid   1
+ accuracy OK in  79.62 % of wet grid points ( 99.50 % required)
+
++time 20230501.013000   , step     10; iteration    2; sweep 1 grid   1
++time 20230501.013000   , step     10; iteration    2; sweep 2 grid   1
++time 20230501.013000   , step     10; iteration    2; sweep 3 grid   1
++time 20230501.013000   , step     10; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.24
+     1    37     38       0.20       0.14       0.29
+     1    36     37       0.20       0.14       0.30
+     1    35     36       0.20       0.14       0.30
+     1    34     35       0.20       0.14       0.30
+     1    33     34       0.20       0.14       0.30
+     1    32     33       0.21       0.15       0.25
+     1    31     32       0.21       0.15       0.25
+     1    30     31       0.21       0.15       0.25
+     1    29     30       0.21       0.15       0.25
+     1    28     29       0.21       0.15       0.25
+     1    27     28       0.21       0.15       0.25
+     1    26     27       0.21       0.15       0.29
+     1    25     26       0.21       0.15       0.30
+     1    24     25       0.21       0.15       0.30
+     1    23     24       0.21       0.15       0.30
+     1    22     23       0.21       0.15       0.30
+     1    21     22       0.21       0.15       0.30
+     1    20     21       0.21       0.14       0.33
+     1    19     20       0.21       0.14       0.34
+     1    18     19       0.21       0.13       0.35
+     1    17     18       0.21       0.13       0.35
+     1    16     17       0.21       0.13       0.35
+     1    15     16       0.21       0.13       0.35
+     1    14     15       0.21       0.13       0.35
+     1    13     14       0.20       0.13       0.37
+     1    12     13       0.20       0.12       0.38
+     1    11     12       0.20       0.12       0.38
+     1    10     11       0.20       0.12       0.38
+     1     9     10       0.20       0.12       0.38
+     1     8      9       0.20       0.12       0.38
+     1     7      8       0.19       0.12       0.34
+     1     6      7       0.19       0.12       0.35
+     1     5      6       0.19       0.12       0.35
+     1     4      5       0.19       0.12       0.35
+     1     3      4       0.19       0.12       0.35
+     1     2      3       0.19       0.12       0.35
+     1     1      2       0.19       0.12       0.35
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.013900      in sec:       5940.
++time 20230501.013900   , step     11; iteration    1; sweep 1 grid   1
++time 20230501.013900   , step     11; iteration    1; sweep 2 grid   1
++time 20230501.013900   , step     11; iteration    1; sweep 3 grid   1
++time 20230501.013900   , step     11; iteration    1; sweep 4 grid   1
+ accuracy OK in  77.66 % of wet grid points ( 99.50 % required)
+
++time 20230501.013900   , step     11; iteration    2; sweep 1 grid   1
++time 20230501.013900   , step     11; iteration    2; sweep 2 grid   1
++time 20230501.013900   , step     11; iteration    2; sweep 3 grid   1
++time 20230501.013900   , step     11; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.24
+     1    37     38       0.20       0.14       0.29
+     1    36     37       0.20       0.14       0.30
+     1    35     36       0.20       0.14       0.30
+     1    34     35       0.20       0.14       0.30
+     1    33     34       0.20       0.14       0.30
+     1    32     33       0.21       0.15       0.26
+     1    31     32       0.21       0.15       0.25
+     1    30     31       0.21       0.15       0.25
+     1    29     30       0.21       0.15       0.25
+     1    28     29       0.21       0.15       0.25
+     1    27     28       0.21       0.15       0.25
+     1    26     27       0.21       0.15       0.30
+     1    25     26       0.21       0.15       0.30
+     1    24     25       0.21       0.15       0.30
+     1    23     24       0.21       0.15       0.31
+     1    22     23       0.21       0.15       0.31
+     1    21     22       0.21       0.15       0.31
+     1    20     21       0.21       0.14       0.34
+     1    19     20       0.21       0.14       0.34
+     1    18     19       0.21       0.13       0.35
+     1    17     18       0.21       0.13       0.35
+     1    16     17       0.21       0.13       0.35
+     1    15     16       0.21       0.13       0.35
+     1    14     15       0.21       0.13       0.35
+     1    13     14       0.20       0.13       0.38
+     1    12     13       0.20       0.12       0.39
+     1    11     12       0.20       0.12       0.39
+     1    10     11       0.20       0.12       0.39
+     1     9     10       0.20       0.12       0.39
+     1     8      9       0.20       0.12       0.39
+     1     7      8       0.19       0.13       0.34
+     1     6      7       0.19       0.12       0.35
+     1     5      6       0.19       0.12       0.35
+     1     4      5       0.19       0.12       0.35
+     1     3      4       0.19       0.12       0.35
+     1     2      3       0.19       0.12       0.35
+     1     1      2       0.19       0.12       0.35
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.014800      in sec:       6480.
++time 20230501.014800   , step     12; iteration    1; sweep 1 grid   1
++time 20230501.014800   , step     12; iteration    1; sweep 2 grid   1
++time 20230501.014800   , step     12; iteration    1; sweep 3 grid   1
++time 20230501.014800   , step     12; iteration    1; sweep 4 grid   1
+ accuracy OK in  76.83 % of wet grid points ( 99.50 % required)
+
++time 20230501.014800   , step     12; iteration    2; sweep 1 grid   1
++time 20230501.014800   , step     12; iteration    2; sweep 2 grid   1
++time 20230501.014800   , step     12; iteration    2; sweep 3 grid   1
++time 20230501.014800   , step     12; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.24
+     1    37     38       0.20       0.14       0.29
+     1    36     37       0.20       0.14       0.30
+     1    35     36       0.20       0.14       0.30
+     1    34     35       0.20       0.14       0.30
+     1    33     34       0.20       0.14       0.30
+     1    32     33       0.20       0.15       0.26
+     1    31     32       0.20       0.15       0.25
+     1    30     31       0.20       0.15       0.25
+     1    29     30       0.20       0.15       0.25
+     1    28     29       0.20       0.15       0.25
+     1    27     28       0.20       0.15       0.25
+     1    26     27       0.21       0.15       0.29
+     1    25     26       0.21       0.15       0.30
+     1    24     25       0.21       0.15       0.30
+     1    23     24       0.21       0.15       0.30
+     1    22     23       0.21       0.15       0.30
+     1    21     22       0.21       0.15       0.30
+     1    20     21       0.21       0.14       0.33
+     1    19     20       0.21       0.14       0.33
+     1    18     19       0.21       0.14       0.34
+     1    17     18       0.21       0.14       0.34
+     1    16     17       0.21       0.14       0.34
+     1    15     16       0.21       0.14       0.34
+     1    14     15       0.21       0.14       0.34
+     1    13     14       0.20       0.13       0.37
+     1    12     13       0.20       0.13       0.37
+     1    11     12       0.20       0.13       0.37
+     1    10     11       0.20       0.13       0.37
+     1     9     10       0.20       0.13       0.37
+     1     8      9       0.20       0.13       0.37
+     1     7      8       0.19       0.13       0.31
+     1     6      7       0.19       0.13       0.33
+     1     5      6       0.19       0.13       0.33
+     1     4      5       0.19       0.13       0.33
+     1     3      4       0.19       0.13       0.33
+     1     2      3       0.19       0.13       0.33
+     1     1      2       0.19       0.13       0.33
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.015700      in sec:       7020.
++time 20230501.015700   , step     13; iteration    1; sweep 1 grid   1
++time 20230501.015700   , step     13; iteration    1; sweep 2 grid   1
++time 20230501.015700   , step     13; iteration    1; sweep 3 grid   1
++time 20230501.015700   , step     13; iteration    1; sweep 4 grid   1
+ accuracy OK in  76.24 % of wet grid points ( 99.50 % required)
+
++time 20230501.015700   , step     13; iteration    2; sweep 1 grid   1
++time 20230501.015700   , step     13; iteration    2; sweep 2 grid   1
++time 20230501.015700   , step     13; iteration    2; sweep 3 grid   1
++time 20230501.015700   , step     13; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.23
+     1    37     38       0.20       0.14       0.28
+     1    36     37       0.20       0.14       0.29
+     1    35     36       0.20       0.14       0.29
+     1    34     35       0.20       0.14       0.29
+     1    33     34       0.20       0.14       0.29
+     1    32     33       0.20       0.15       0.26
+     1    31     32       0.20       0.15       0.25
+     1    30     31       0.20       0.15       0.25
+     1    29     30       0.20       0.15       0.25
+     1    28     29       0.20       0.15       0.25
+     1    27     28       0.20       0.15       0.25
+     1    26     27       0.21       0.15       0.28
+     1    25     26       0.21       0.15       0.28
+     1    24     25       0.21       0.15       0.28
+     1    23     24       0.21       0.15       0.28
+     1    22     23       0.21       0.15       0.29
+     1    21     22       0.21       0.15       0.29
+     1    20     21       0.21       0.15       0.29
+     1    19     20       0.21       0.15       0.30
+     1    18     19       0.21       0.15       0.30
+     1    17     18       0.21       0.15       0.30
+     1    16     17       0.21       0.15       0.30
+     1    15     16       0.21       0.15       0.30
+     1    14     15       0.21       0.15       0.30
+     1    13     14       0.21       0.14       0.31
+     1    12     13       0.21       0.14       0.31
+     1    11     12       0.21       0.14       0.31
+     1    10     11       0.21       0.14       0.31
+     1     9     10       0.21       0.14       0.31
+     1     8      9       0.21       0.14       0.31
+     1     7      8       0.19       0.15       0.24
+     1     6      7       0.19       0.14       0.27
+     1     5      6       0.19       0.14       0.27
+     1     4      5       0.19       0.14       0.27
+     1     3      4       0.19       0.14       0.27
+     1     2      3       0.19       0.14       0.27
+     1     1      2       0.19       0.14       0.27
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.020600      in sec:       7560.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
+ Boundary data type TPAR processed, time:       10800.
++time 20230501.020600   , step     14; iteration    1; sweep 1 grid   1
++time 20230501.020600   , step     14; iteration    1; sweep 2 grid   1
++time 20230501.020600   , step     14; iteration    1; sweep 3 grid   1
++time 20230501.020600   , step     14; iteration    1; sweep 4 grid   1
+ accuracy OK in  76.10 % of wet grid points ( 99.50 % required)
+
++time 20230501.020600   , step     14; iteration    2; sweep 1 grid   1
++time 20230501.020600   , step     14; iteration    2; sweep 2 grid   1
++time 20230501.020600   , step     14; iteration    2; sweep 3 grid   1
++time 20230501.020600   , step     14; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.24
+     1    37     38       0.20       0.14       0.29
+     1    36     37       0.20       0.14       0.30
+     1    35     36       0.20       0.14       0.30
+     1    34     35       0.20       0.14       0.30
+     1    33     34       0.20       0.14       0.30
+     1    32     33       0.21       0.15       0.28
+     1    31     32       0.21       0.15       0.27
+     1    30     31       0.21       0.15       0.27
+     1    29     30       0.21       0.15       0.27
+     1    28     29       0.21       0.15       0.27
+     1    27     28       0.21       0.15       0.27
+     1    26     27       0.21       0.15       0.28
+     1    25     26       0.21       0.15       0.29
+     1    24     25       0.21       0.15       0.29
+     1    23     24       0.21       0.15       0.29
+     1    22     23       0.21       0.15       0.29
+     1    21     22       0.21       0.15       0.29
+     1    20     21       0.21       0.15       0.30
+     1    19     20       0.21       0.15       0.30
+     1    18     19       0.21       0.15       0.30
+     1    17     18       0.21       0.15       0.30
+     1    16     17       0.21       0.15       0.30
+     1    15     16       0.21       0.15       0.30
+     1    14     15       0.21       0.15       0.30
+     1    13     14       0.21       0.15       0.26
+     1    12     13       0.21       0.15       0.26
+     1    11     12       0.21       0.15       0.26
+     1    10     11       0.21       0.15       0.26
+     1     9     10       0.21       0.15       0.26
+     1     8      9       0.21       0.15       0.26
+     1     7      8       0.20       0.16       0.19
+     1     6      7       0.20       0.15       0.21
+     1     5      6       0.20       0.15       0.22
+     1     4      5       0.20       0.15       0.22
+     1     3      4       0.20       0.15       0.22
+     1     2      3       0.20       0.15       0.22
+     1     1      2       0.20       0.15       0.22
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.021500      in sec:       8100.
++time 20230501.021500   , step     15; iteration    1; sweep 1 grid   1
++time 20230501.021500   , step     15; iteration    1; sweep 2 grid   1
++time 20230501.021500   , step     15; iteration    1; sweep 3 grid   1
++time 20230501.021500   , step     15; iteration    1; sweep 4 grid   1
+ accuracy OK in  75.50 % of wet grid points ( 99.50 % required)
+
++time 20230501.021500   , step     15; iteration    2; sweep 1 grid   1
++time 20230501.021500   , step     15; iteration    2; sweep 2 grid   1
++time 20230501.021500   , step     15; iteration    2; sweep 3 grid   1
++time 20230501.021500   , step     15; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.25
+     1    37     38       0.20       0.14       0.30
+     1    36     37       0.20       0.14       0.31
+     1    35     36       0.20       0.14       0.32
+     1    34     35       0.20       0.14       0.32
+     1    33     34       0.20       0.14       0.32
+     1    32     33       0.21       0.14       0.30
+     1    31     32       0.21       0.15       0.29
+     1    30     31       0.21       0.15       0.29
+     1    29     30       0.21       0.15       0.29
+     1    28     29       0.21       0.15       0.29
+     1    27     28       0.21       0.15       0.29
+     1    26     27       0.21       0.15       0.31
+     1    25     26       0.21       0.15       0.31
+     1    24     25       0.21       0.15       0.31
+     1    23     24       0.21       0.15       0.31
+     1    22     23       0.21       0.15       0.31
+     1    21     22       0.21       0.15       0.31
+     1    20     21       0.21       0.16       0.26
+     1    19     20       0.21       0.16       0.27
+     1    18     19       0.21       0.16       0.27
+     1    17     18       0.21       0.16       0.27
+     1    16     17       0.21       0.16       0.27
+     1    15     16       0.21       0.16       0.27
+     1    14     15       0.21       0.16       0.27
+     1    13     14       0.21       0.16       0.23
+     1    12     13       0.21       0.16       0.23
+     1    11     12       0.21       0.16       0.23
+     1    10     11       0.21       0.16       0.23
+     1     9     10       0.21       0.16       0.23
+     1     8      9       0.21       0.16       0.23
+     1     6      7       0.20       0.18       0.11
+     1     5      6       0.20       0.18       0.11
+     1     4      5       0.20       0.18       0.11
+     1     3      4       0.20       0.18       0.11
+     1     2      3       0.20       0.18       0.11
+     1     1      2       0.20       0.18       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.022400      in sec:       8640.
++time 20230501.022400   , step     16; iteration    1; sweep 1 grid   1
++time 20230501.022400   , step     16; iteration    1; sweep 2 grid   1
++time 20230501.022400   , step     16; iteration    1; sweep 3 grid   1
++time 20230501.022400   , step     16; iteration    1; sweep 4 grid   1
+ accuracy OK in  75.69 % of wet grid points ( 99.50 % required)
+
++time 20230501.022400   , step     16; iteration    2; sweep 1 grid   1
++time 20230501.022400   , step     16; iteration    2; sweep 2 grid   1
++time 20230501.022400   , step     16; iteration    2; sweep 3 grid   1
++time 20230501.022400   , step     16; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.20       0.15       0.25
+     1    37     38       0.20       0.14       0.30
+     1    36     37       0.20       0.14       0.32
+     1    35     36       0.20       0.14       0.32
+     1    34     35       0.20       0.14       0.32
+     1    33     34       0.20       0.14       0.32
+     1    32     33       0.21       0.14       0.31
+     1    31     32       0.21       0.15       0.31
+     1    30     31       0.21       0.15       0.30
+     1    29     30       0.21       0.15       0.30
+     1    28     29       0.21       0.15       0.30
+     1    27     28       0.21       0.15       0.30
+     1    26     27       0.22       0.15       0.32
+     1    25     26       0.22       0.15       0.32
+     1    24     25       0.22       0.15       0.32
+     1    23     24       0.22       0.15       0.32
+     1    22     23       0.22       0.15       0.32
+     1    21     22       0.22       0.15       0.32
+     1    20     21       0.22       0.16       0.25
+     1    19     20       0.22       0.16       0.26
+     1    18     19       0.22       0.16       0.26
+     1    17     18       0.22       0.16       0.26
+     1    16     17       0.22       0.16       0.26
+     1    15     16       0.22       0.16       0.26
+     1    14     15       0.22       0.16       0.26
+     1    13     14       0.22       0.18       0.17
+     1    12     13       0.22       0.18       0.17
+     1    11     12       0.22       0.18       0.17
+     1    10     11       0.22       0.18       0.18
+     1     9     10       0.22       0.18       0.18
+     1     8      9       0.22       0.18       0.18
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.023300      in sec:       9180.
++time 20230501.023300   , step     17; iteration    1; sweep 1 grid   1
++time 20230501.023300   , step     17; iteration    1; sweep 2 grid   1
++time 20230501.023300   , step     17; iteration    1; sweep 3 grid   1
++time 20230501.023300   , step     17; iteration    1; sweep 4 grid   1
+ accuracy OK in  75.05 % of wet grid points ( 99.50 % required)
+
++time 20230501.023300   , step     17; iteration    2; sweep 1 grid   1
++time 20230501.023300   , step     17; iteration    2; sweep 2 grid   1
++time 20230501.023300   , step     17; iteration    2; sweep 3 grid   1
++time 20230501.023300   , step     17; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.16       0.24
+     1    37     38       0.21       0.14       0.30
+     1    36     37       0.21       0.14       0.32
+     1    35     36       0.21       0.14       0.32
+     1    34     35       0.21       0.14       0.32
+     1    33     34       0.21       0.14       0.32
+     1    32     33       0.21       0.15       0.31
+     1    31     32       0.21       0.15       0.30
+     1    30     31       0.21       0.15       0.30
+     1    29     30       0.21       0.15       0.30
+     1    28     29       0.21       0.15       0.30
+     1    27     28       0.21       0.15       0.30
+     1    26     27       0.22       0.15       0.32
+     1    25     26       0.22       0.15       0.32
+     1    24     25       0.22       0.15       0.32
+     1    23     24       0.22       0.15       0.32
+     1    22     23       0.22       0.15       0.32
+     1    21     22       0.22       0.15       0.32
+     1    20     21       0.22       0.17       0.21
+     1    19     20       0.22       0.17       0.22
+     1    18     19       0.22       0.17       0.22
+     1    17     18       0.22       0.17       0.22
+     1    16     17       0.22       0.17       0.22
+     1    15     16       0.22       0.17       0.22
+     1    14     15       0.22       0.17       0.22
+     1    12     13       0.22       0.20       0.10
+     1    11     12       0.22       0.20       0.10
+     1    10     11       0.22       0.20       0.10
+     1     9     10       0.22       0.20       0.10
+     1     8      9       0.22       0.20       0.10
+     1     7      8       0.21       0.24       0.15
+     1     6      7       0.21       0.24       0.13
+     1     5      6       0.21       0.23       0.12
+     1     4      5       0.21       0.23       0.12
+     1     3      4       0.21       0.23       0.12
+     1     2      3       0.21       0.23       0.12
+     1     1      2       0.21       0.23       0.12
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.024200      in sec:       9720.
++time 20230501.024200   , step     18; iteration    1; sweep 1 grid   1
++time 20230501.024200   , step     18; iteration    1; sweep 2 grid   1
++time 20230501.024200   , step     18; iteration    1; sweep 3 grid   1
++time 20230501.024200   , step     18; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.73 % of wet grid points ( 99.50 % required)
+
++time 20230501.024200   , step     18; iteration    2; sweep 1 grid   1
++time 20230501.024200   , step     18; iteration    2; sweep 2 grid   1
++time 20230501.024200   , step     18; iteration    2; sweep 3 grid   1
++time 20230501.024200   , step     18; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.16       0.23
+     1    37     38       0.21       0.15       0.29
+     1    36     37       0.21       0.14       0.31
+     1    35     36       0.21       0.14       0.31
+     1    34     35       0.21       0.14       0.31
+     1    33     34       0.21       0.14       0.31
+     1    32     33       0.21       0.15       0.30
+     1    31     32       0.21       0.15       0.29
+     1    30     31       0.21       0.15       0.29
+     1    29     30       0.21       0.15       0.29
+     1    28     29       0.21       0.15       0.29
+     1    27     28       0.21       0.15       0.29
+     1    26     27       0.22       0.15       0.30
+     1    25     26       0.22       0.15       0.30
+     1    24     25       0.22       0.15       0.30
+     1    23     24       0.22       0.15       0.31
+     1    22     23       0.22       0.15       0.31
+     1    21     22       0.22       0.15       0.31
+     1    20     21       0.22       0.18       0.17
+     1    19     20       0.22       0.18       0.18
+     1    18     19       0.22       0.18       0.18
+     1    17     18       0.22       0.18       0.18
+     1    16     17       0.22       0.18       0.18
+     1    15     16       0.22       0.18       0.18
+     1    14     15       0.22       0.18       0.18
+     1     7      8       0.21       0.26       0.20
+     1     6      7       0.21       0.25       0.18
+     1     5      6       0.21       0.25       0.18
+     1     4      5       0.21       0.25       0.17
+     1     3      4       0.21       0.25       0.17
+     1     2      3       0.21       0.25       0.17
+     1     1      2       0.21       0.25       0.17
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.025100      in sec:      10260.
++time 20230501.025100   , step     19; iteration    1; sweep 1 grid   1
++time 20230501.025100   , step     19; iteration    1; sweep 2 grid   1
++time 20230501.025100   , step     19; iteration    1; sweep 3 grid   1
++time 20230501.025100   , step     19; iteration    1; sweep 4 grid   1
+ accuracy OK in  73.49 % of wet grid points ( 99.50 % required)
+
++time 20230501.025100   , step     19; iteration    2; sweep 1 grid   1
++time 20230501.025100   , step     19; iteration    2; sweep 2 grid   1
++time 20230501.025100   , step     19; iteration    2; sweep 3 grid   1
++time 20230501.025100   , step     19; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.17       0.21
+     1    37     38       0.21       0.15       0.27
+     1    36     37       0.21       0.15       0.28
+     1    35     36       0.21       0.15       0.28
+     1    34     35       0.21       0.15       0.28
+     1    33     34       0.21       0.15       0.28
+     1    32     33       0.22       0.16       0.27
+     1    31     32       0.22       0.16       0.26
+     1    30     31       0.22       0.16       0.26
+     1    29     30       0.22       0.16       0.26
+     1    28     29       0.22       0.16       0.26
+     1    27     28       0.22       0.16       0.26
+     1    26     27       0.22       0.16       0.28
+     1    25     26       0.22       0.16       0.28
+     1    24     25       0.22       0.16       0.28
+     1    23     24       0.22       0.16       0.28
+     1    22     23       0.22       0.16       0.28
+     1    21     22       0.22       0.16       0.28
+     1    20     21       0.23       0.20       0.11
+     1    19     20       0.23       0.20       0.12
+     1    18     19       0.23       0.20       0.12
+     1    17     18       0.23       0.20       0.12
+     1    16     17       0.23       0.20       0.12
+     1    15     16       0.23       0.20       0.12
+     1    14     15       0.23       0.20       0.12
+     1     7      8       0.22       0.26       0.21
+     1     6      7       0.22       0.26       0.18
+     1     5      6       0.22       0.26       0.18
+     1     4      5       0.22       0.25       0.18
+     1     3      4       0.22       0.25       0.18
+     1     2      3       0.22       0.25       0.18
+     1     1      2       0.22       0.25       0.18
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.030000      in sec:      10800.
++time 20230501.030000   , step     20; iteration    1; sweep 1 grid   1
++time 20230501.030000   , step     20; iteration    1; sweep 2 grid   1
++time 20230501.030000   , step     20; iteration    1; sweep 3 grid   1
++time 20230501.030000   , step     20; iteration    1; sweep 4 grid   1
+ accuracy OK in  73.44 % of wet grid points ( 99.50 % required)
+
++time 20230501.030000   , step     20; iteration    2; sweep 1 grid   1
++time 20230501.030000   , step     20; iteration    2; sweep 2 grid   1
++time 20230501.030000   , step     20; iteration    2; sweep 3 grid   1
++time 20230501.030000   , step     20; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.18       0.16
+     1    37     38       0.21       0.17       0.20
+     1    36     37       0.21       0.16       0.22
+     1    35     36       0.21       0.16       0.22
+     1    34     35       0.21       0.16       0.22
+     1    33     34       0.21       0.16       0.22
+     1    32     33       0.22       0.17       0.20
+     1    31     32       0.22       0.18       0.19
+     1    30     31       0.22       0.18       0.19
+     1    29     30       0.22       0.18       0.19
+     1    28     29       0.22       0.18       0.19
+     1    27     28       0.22       0.18       0.19
+     1    26     27       0.22       0.18       0.20
+     1    25     26       0.22       0.18       0.20
+     1    24     25       0.22       0.18       0.20
+     1    23     24       0.22       0.18       0.20
+     1    22     23       0.22       0.18       0.20
+     1    21     22       0.22       0.18       0.20
+     1    13     14       0.23       0.27       0.19
+     1    12     13       0.23       0.27       0.18
+     1    11     12       0.23       0.27       0.18
+     1    10     11       0.23       0.27       0.18
+     1     9     10       0.23       0.27       0.18
+     1     8      9       0.23       0.27       0.18
+     1     7      8       0.22       0.26       0.19
+     1     6      7       0.22       0.26       0.17
+     1     5      6       0.22       0.26       0.16
+     1     4      5       0.22       0.26       0.16
+     1     3      4       0.22       0.26       0.16
+     1     2      3       0.22       0.26       0.16
+     1     1      2       0.22       0.26       0.16
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.030900      in sec:      11340.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
+ Boundary data type TPAR processed, time:       14400.
++time 20230501.030900   , step     21; iteration    1; sweep 1 grid   1
++time 20230501.030900   , step     21; iteration    1; sweep 2 grid   1
++time 20230501.030900   , step     21; iteration    1; sweep 3 grid   1
++time 20230501.030900   , step     21; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.22 % of wet grid points ( 99.50 % required)
+
++time 20230501.030900   , step     21; iteration    2; sweep 1 grid   1
++time 20230501.030900   , step     21; iteration    2; sweep 2 grid   1
++time 20230501.030900   , step     21; iteration    2; sweep 3 grid   1
++time 20230501.030900   , step     21; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.31 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.18       0.17
+     1    37     38       0.21       0.17       0.21
+     1    36     37       0.21       0.16       0.23
+     1    35     36       0.21       0.16       0.23
+     1    34     35       0.21       0.16       0.23
+     1    33     34       0.21       0.16       0.23
+     1    32     33       0.22       0.18       0.20
+     1    31     32       0.22       0.18       0.20
+     1    30     31       0.22       0.18       0.19
+     1    29     30       0.22       0.18       0.19
+     1    28     29       0.22       0.18       0.19
+     1    27     28       0.22       0.18       0.19
+     1    26     27       0.22       0.19       0.18
+     1    25     26       0.22       0.19       0.18
+     1    24     25       0.22       0.19       0.18
+     1    23     24       0.22       0.19       0.18
+     1    22     23       0.22       0.19       0.18
+     1    21     22       0.22       0.18       0.18
+     1    13     14       0.23       0.28       0.19
+     1    12     13       0.23       0.27       0.18
+     1    11     12       0.23       0.27       0.18
+     1    10     11       0.23       0.27       0.18
+     1     9     10       0.23       0.27       0.18
+     1     8      9       0.23       0.27       0.18
+     1     7      8       0.22       0.26       0.18
+     1     6      7       0.22       0.26       0.16
+     1     5      6       0.22       0.25       0.15
+     1     4      5       0.22       0.25       0.15
+     1     3      4       0.22       0.25       0.15
+     1     2      3       0.22       0.25       0.15
+     1     1      2       0.22       0.25       0.15
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.031800      in sec:      11880.
++time 20230501.031800   , step     22; iteration    1; sweep 1 grid   1
++time 20230501.031800   , step     22; iteration    1; sweep 2 grid   1
++time 20230501.031800   , step     22; iteration    1; sweep 3 grid   1
++time 20230501.031800   , step     22; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.40 % of wet grid points ( 99.50 % required)
+
++time 20230501.031800   , step     22; iteration    2; sweep 1 grid   1
++time 20230501.031800   , step     22; iteration    2; sweep 2 grid   1
++time 20230501.031800   , step     22; iteration    2; sweep 3 grid   1
++time 20230501.031800   , step     22; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.21       0.18       0.17
+     1    37     38       0.21       0.17       0.21
+     1    36     37       0.21       0.17       0.23
+     1    35     36       0.21       0.16       0.23
+     1    34     35       0.21       0.16       0.23
+     1    33     34       0.21       0.16       0.23
+     1    32     33       0.22       0.18       0.19
+     1    31     32       0.22       0.18       0.18
+     1    30     31       0.22       0.18       0.18
+     1    29     30       0.22       0.18       0.18
+     1    28     29       0.22       0.18       0.18
+     1    27     28       0.22       0.18       0.18
+     1    26     27       0.23       0.19       0.15
+     1    25     26       0.23       0.19       0.15
+     1    24     25       0.23       0.19       0.15
+     1    23     24       0.23       0.19       0.15
+     1    22     23       0.23       0.19       0.15
+     1    21     22       0.23       0.19       0.15
+     1    13     14       0.23       0.28       0.20
+     1    12     13       0.23       0.28       0.19
+     1    11     12       0.23       0.28       0.19
+     1    10     11       0.23       0.28       0.19
+     1     9     10       0.23       0.28       0.19
+     1     8      9       0.23       0.28       0.19
+     1     7      8       0.22       0.26       0.17
+     1     6      7       0.22       0.25       0.15
+     1     5      6       0.22       0.25       0.14
+     1     4      5       0.22       0.25       0.14
+     1     3      4       0.22       0.25       0.14
+     1     2      3       0.22       0.25       0.14
+     1     1      2       0.22       0.25       0.14
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.032700      in sec:      12420.
++time 20230501.032700   , step     23; iteration    1; sweep 1 grid   1
++time 20230501.032700   , step     23; iteration    1; sweep 2 grid   1
++time 20230501.032700   , step     23; iteration    1; sweep 3 grid   1
++time 20230501.032700   , step     23; iteration    1; sweep 4 grid   1
+ accuracy OK in  73.90 % of wet grid points ( 99.50 % required)
+
++time 20230501.032700   , step     23; iteration    2; sweep 1 grid   1
++time 20230501.032700   , step     23; iteration    2; sweep 2 grid   1
++time 20230501.032700   , step     23; iteration    2; sweep 3 grid   1
++time 20230501.032700   , step     23; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.22       0.18       0.16
+     1    37     38       0.22       0.17       0.21
+     1    36     37       0.22       0.17       0.22
+     1    35     36       0.22       0.17       0.23
+     1    34     35       0.22       0.17       0.23
+     1    33     34       0.22       0.17       0.23
+     1    32     33       0.23       0.19       0.16
+     1    31     32       0.23       0.19       0.15
+     1    30     31       0.23       0.19       0.15
+     1    29     30       0.23       0.19       0.15
+     1    28     29       0.23       0.19       0.15
+     1    27     28       0.23       0.19       0.15
+     1    26     27       0.23       0.21       0.11
+     1    25     26       0.23       0.21       0.10
+     1    24     25       0.23       0.21       0.10
+     1    23     24       0.23       0.21       0.10
+     1    22     23       0.23       0.21       0.10
+     1    21     22       0.23       0.21       0.10
+     1    20     21       0.24       0.27       0.13
+     1    19     20       0.24       0.27       0.13
+     1    18     19       0.24       0.27       0.14
+     1    17     18       0.24       0.27       0.14
+     1    16     17       0.24       0.27       0.14
+     1    15     16       0.24       0.27       0.14
+     1    14     15       0.24       0.27       0.14
+     1    13     14       0.23       0.28       0.20
+     1    12     13       0.23       0.28       0.19
+     1    11     12       0.23       0.28       0.19
+     1    10     11       0.23       0.28       0.19
+     1     9     10       0.23       0.28       0.19
+     1     8      9       0.23       0.28       0.19
+     1     7      8       0.22       0.26       0.16
+     1     6      7       0.22       0.25       0.14
+     1     5      6       0.22       0.25       0.13
+     1     4      5       0.22       0.25       0.12
+     1     3      4       0.22       0.25       0.12
+     1     2      3       0.22       0.25       0.12
+     1     1      2       0.22       0.25       0.12
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.033600      in sec:      12960.
++time 20230501.033600   , step     24; iteration    1; sweep 1 grid   1
++time 20230501.033600   , step     24; iteration    1; sweep 2 grid   1
++time 20230501.033600   , step     24; iteration    1; sweep 3 grid   1
++time 20230501.033600   , step     24; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.50 % of wet grid points ( 99.50 % required)
+
++time 20230501.033600   , step     24; iteration    2; sweep 1 grid   1
++time 20230501.033600   , step     24; iteration    2; sweep 2 grid   1
++time 20230501.033600   , step     24; iteration    2; sweep 3 grid   1
++time 20230501.033600   , step     24; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.22       0.19       0.15
+     1    37     38       0.22       0.18       0.20
+     1    36     37       0.22       0.17       0.21
+     1    35     36       0.22       0.17       0.22
+     1    34     35       0.22       0.17       0.22
+     1    33     34       0.22       0.17       0.22
+     1    32     33       0.23       0.20       0.12
+     1    31     32       0.23       0.20       0.11
+     1    30     31       0.23       0.20       0.11
+     1    29     30       0.23       0.20       0.11
+     1    28     29       0.23       0.20       0.11
+     1    27     28       0.23       0.20       0.11
+     1    20     21       0.24       0.28       0.17
+     1    19     20       0.24       0.28       0.17
+     1    18     19       0.24       0.28       0.17
+     1    17     18       0.24       0.28       0.17
+     1    16     17       0.24       0.28       0.17
+     1    15     16       0.24       0.28       0.17
+     1    14     15       0.24       0.28       0.17
+     1    13     14       0.24       0.28       0.20
+     1    12     13       0.24       0.28       0.19
+     1    11     12       0.24       0.28       0.19
+     1    10     11       0.24       0.28       0.19
+     1     9     10       0.24       0.28       0.19
+     1     8      9       0.24       0.28       0.19
+     1     7      8       0.22       0.26       0.16
+     1     6      7       0.22       0.25       0.13
+     1     5      6       0.22       0.25       0.12
+     1     4      5       0.22       0.25       0.11
+     1     3      4       0.22       0.25       0.11
+     1     2      3       0.22       0.25       0.11
+     1     1      2       0.22       0.25       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.034500      in sec:      13500.
++time 20230501.034500   , step     25; iteration    1; sweep 1 grid   1
++time 20230501.034500   , step     25; iteration    1; sweep 2 grid   1
++time 20230501.034500   , step     25; iteration    1; sweep 3 grid   1
++time 20230501.034500   , step     25; iteration    1; sweep 4 grid   1
+ accuracy OK in  75.73 % of wet grid points ( 99.50 % required)
+
++time 20230501.034500   , step     25; iteration    2; sweep 1 grid   1
++time 20230501.034500   , step     25; iteration    2; sweep 2 grid   1
++time 20230501.034500   , step     25; iteration    2; sweep 3 grid   1
++time 20230501.034500   , step     25; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.49 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    38     39       0.22       0.19       0.13
+     1    37     38       0.22       0.18       0.17
+     1    36     37       0.22       0.18       0.19
+     1    35     36       0.22       0.18       0.19
+     1    34     35       0.22       0.18       0.20
+     1    33     34       0.22       0.18       0.20
+     1    20     21       0.24       0.29       0.19
+     1    19     20       0.24       0.29       0.18
+     1    18     19       0.24       0.29       0.19
+     1    17     18       0.24       0.29       0.19
+     1    16     17       0.24       0.29       0.19
+     1    15     16       0.24       0.29       0.19
+     1    14     15       0.24       0.29       0.19
+     1    13     14       0.24       0.28       0.19
+     1    12     13       0.24       0.28       0.19
+     1    11     12       0.24       0.28       0.18
+     1    10     11       0.24       0.28       0.18
+     1     9     10       0.24       0.28       0.18
+     1     8      9       0.24       0.28       0.18
+     1     7      8       0.22       0.26       0.15
+     1     6      7       0.22       0.25       0.12
+     1     5      6       0.22       0.25       0.11
+     1     4      5       0.22       0.25       0.11
+     1     3      4       0.22       0.25       0.10
+     1     2      3       0.22       0.25       0.10
+     1     1      2       0.22       0.25       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.035400      in sec:      14040.
++time 20230501.035400   , step     26; iteration    1; sweep 1 grid   1
++time 20230501.035400   , step     26; iteration    1; sweep 2 grid   1
++time 20230501.035400   , step     26; iteration    1; sweep 3 grid   1
++time 20230501.035400   , step     26; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.63 % of wet grid points ( 99.50 % required)
+
++time 20230501.035400   , step     26; iteration    2; sweep 1 grid   1
++time 20230501.035400   , step     26; iteration    2; sweep 2 grid   1
++time 20230501.035400   , step     26; iteration    2; sweep 3 grid   1
++time 20230501.035400   , step     26; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    37     38       0.22       0.19       0.13
+     1    36     37       0.22       0.19       0.15
+     1    35     36       0.22       0.19       0.15
+     1    34     35       0.22       0.19       0.15
+     1    33     34       0.22       0.19       0.16
+     1    20     21       0.24       0.29       0.19
+     1    19     20       0.24       0.29       0.19
+     1    18     19       0.24       0.29       0.19
+     1    17     18       0.24       0.29       0.19
+     1    16     17       0.24       0.29       0.19
+     1    15     16       0.24       0.29       0.19
+     1    14     15       0.24       0.29       0.19
+     1    13     14       0.24       0.28       0.19
+     1    12     13       0.24       0.28       0.18
+     1    11     12       0.24       0.28       0.18
+     1    10     11       0.24       0.28       0.18
+     1     9     10       0.24       0.28       0.17
+     1     8      9       0.24       0.28       0.17
+     1     7      8       0.22       0.25       0.14
+     1     6      7       0.22       0.25       0.11
+     1     5      6       0.22       0.25       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.040300      in sec:      14580.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
+ Boundary data type TPAR processed, time:       18000.
++time 20230501.040300   , step     27; iteration    1; sweep 1 grid   1
++time 20230501.040300   , step     27; iteration    1; sweep 2 grid   1
++time 20230501.040300   , step     27; iteration    1; sweep 3 grid   1
++time 20230501.040300   , step     27; iteration    1; sweep 4 grid   1
+ accuracy OK in  74.36 % of wet grid points ( 99.50 % required)
+
++time 20230501.040300   , step     27; iteration    2; sweep 1 grid   1
++time 20230501.040300   , step     27; iteration    2; sweep 2 grid   1
++time 20230501.040300   , step     27; iteration    2; sweep 3 grid   1
++time 20230501.040300   , step     27; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    35     36       0.23       0.20       0.10
+     1    34     35       0.23       0.20       0.11
+     1    33     34       0.23       0.20       0.11
+     1    20     21       0.25       0.29       0.19
+     1    19     20       0.25       0.29       0.18
+     1    18     19       0.25       0.29       0.18
+     1    17     18       0.25       0.29       0.18
+     1    16     17       0.25       0.29       0.18
+     1    15     16       0.25       0.29       0.18
+     1    14     15       0.25       0.29       0.18
+     1    13     14       0.24       0.28       0.18
+     1    12     13       0.24       0.28       0.17
+     1    11     12       0.24       0.28       0.17
+     1    10     11       0.24       0.28       0.17
+     1     9     10       0.24       0.28       0.17
+     1     8      9       0.24       0.28       0.17
+     1     7      8       0.22       0.25       0.14
+     1     6      7       0.22       0.25       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.041200      in sec:      15120.
++time 20230501.041200   , step     28; iteration    1; sweep 1 grid   1
++time 20230501.041200   , step     28; iteration    1; sweep 2 grid   1
++time 20230501.041200   , step     28; iteration    1; sweep 3 grid   1
++time 20230501.041200   , step     28; iteration    1; sweep 4 grid   1
+ accuracy OK in  73.53 % of wet grid points ( 99.50 % required)
+
++time 20230501.041200   , step     28; iteration    2; sweep 1 grid   1
++time 20230501.041200   , step     28; iteration    2; sweep 2 grid   1
++time 20230501.041200   , step     28; iteration    2; sweep 3 grid   1
++time 20230501.041200   , step     28; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    26     27       0.24       0.27       0.10
+     1    20     21       0.25       0.29       0.19
+     1    19     20       0.25       0.29       0.18
+     1    18     19       0.25       0.29       0.18
+     1    17     18       0.25       0.29       0.17
+     1    16     17       0.25       0.29       0.17
+     1    15     16       0.25       0.29       0.17
+     1    14     15       0.25       0.29       0.17
+     1    13     14       0.24       0.28       0.17
+     1    12     13       0.24       0.28       0.17
+     1    11     12       0.24       0.28       0.16
+     1    10     11       0.24       0.28       0.16
+     1     9     10       0.24       0.28       0.16
+     1     8      9       0.24       0.28       0.16
+     1     7      8       0.22       0.25       0.13
+     1     6      7       0.22       0.25       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.042100      in sec:      15660.
++time 20230501.042100   , step     29; iteration    1; sweep 1 grid   1
++time 20230501.042100   , step     29; iteration    1; sweep 2 grid   1
++time 20230501.042100   , step     29; iteration    1; sweep 3 grid   1
++time 20230501.042100   , step     29; iteration    1; sweep 4 grid   1
+ accuracy OK in  73.03 % of wet grid points ( 99.50 % required)
+
++time 20230501.042100   , step     29; iteration    2; sweep 1 grid   1
++time 20230501.042100   , step     29; iteration    2; sweep 2 grid   1
++time 20230501.042100   , step     29; iteration    2; sweep 3 grid   1
++time 20230501.042100   , step     29; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    26     27       0.24       0.27       0.11
+     1    25     26       0.24       0.27       0.10
+     1    24     25       0.24       0.27       0.10
+     1    23     24       0.24       0.27       0.10
+     1    22     23       0.24       0.27       0.10
+     1    21     22       0.24       0.27       0.10
+     1    20     21       0.24       0.29       0.18
+     1    19     20       0.24       0.29       0.17
+     1    18     19       0.24       0.29       0.17
+     1    17     18       0.24       0.29       0.17
+     1    16     17       0.24       0.29       0.17
+     1    15     16       0.24       0.29       0.17
+     1    14     15       0.24       0.29       0.17
+     1    13     14       0.24       0.28       0.16
+     1    12     13       0.24       0.27       0.16
+     1    11     12       0.24       0.27       0.16
+     1    10     11       0.24       0.27       0.15
+     1     9     10       0.24       0.27       0.15
+     1     8      9       0.24       0.27       0.15
+     1     7      8       0.22       0.25       0.13
+     1     6      7       0.22       0.24       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.043000      in sec:      16200.
++time 20230501.043000   , step     30; iteration    1; sweep 1 grid   1
++time 20230501.043000   , step     30; iteration    1; sweep 2 grid   1
++time 20230501.043000   , step     30; iteration    1; sweep 3 grid   1
++time 20230501.043000   , step     30; iteration    1; sweep 4 grid   1
+ accuracy OK in  71.93 % of wet grid points ( 99.50 % required)
+
++time 20230501.043000   , step     30; iteration    2; sweep 1 grid   1
++time 20230501.043000   , step     30; iteration    2; sweep 2 grid   1
++time 20230501.043000   , step     30; iteration    2; sweep 3 grid   1
++time 20230501.043000   , step     30; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    26     27       0.24       0.27       0.12
+     1    25     26       0.24       0.27       0.11
+     1    24     25       0.24       0.27       0.11
+     1    23     24       0.24       0.27       0.11
+     1    22     23       0.24       0.27       0.11
+     1    21     22       0.24       0.27       0.11
+     1    20     21       0.24       0.29       0.18
+     1    19     20       0.24       0.29       0.17
+     1    18     19       0.24       0.28       0.16
+     1    17     18       0.24       0.28       0.16
+     1    16     17       0.24       0.28       0.16
+     1    15     16       0.24       0.28       0.16
+     1    14     15       0.24       0.28       0.16
+     1    13     14       0.24       0.27       0.16
+     1    12     13       0.24       0.27       0.15
+     1    11     12       0.24       0.27       0.15
+     1    10     11       0.24       0.27       0.15
+     1     9     10       0.24       0.27       0.15
+     1     8      9       0.24       0.27       0.15
+     1     7      8       0.22       0.25       0.13
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.043900      in sec:      16740.
++time 20230501.043900   , step     31; iteration    1; sweep 1 grid   1
++time 20230501.043900   , step     31; iteration    1; sweep 2 grid   1
++time 20230501.043900   , step     31; iteration    1; sweep 3 grid   1
++time 20230501.043900   , step     31; iteration    1; sweep 4 grid   1
+ accuracy OK in  71.70 % of wet grid points ( 99.50 % required)
+
++time 20230501.043900   , step     31; iteration    2; sweep 1 grid   1
++time 20230501.043900   , step     31; iteration    2; sweep 2 grid   1
++time 20230501.043900   , step     31; iteration    2; sweep 3 grid   1
++time 20230501.043900   , step     31; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    26     27       0.24       0.27       0.13
+     1    25     26       0.24       0.27       0.12
+     1    24     25       0.24       0.27       0.12
+     1    23     24       0.24       0.27       0.12
+     1    22     23       0.24       0.27       0.12
+     1    21     22       0.24       0.27       0.12
+     1    20     21       0.24       0.29       0.17
+     1    19     20       0.24       0.28       0.16
+     1    18     19       0.24       0.28       0.16
+     1    17     18       0.24       0.28       0.16
+     1    16     17       0.24       0.28       0.16
+     1    15     16       0.24       0.28       0.16
+     1    14     15       0.24       0.28       0.16
+     1    13     14       0.24       0.27       0.15
+     1    12     13       0.24       0.27       0.15
+     1    11     12       0.24       0.27       0.14
+     1    10     11       0.24       0.27       0.14
+     1     9     10       0.24       0.27       0.14
+     1     8      9       0.24       0.27       0.14
+     1     7      8       0.22       0.25       0.12
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.044800      in sec:      17280.
++time 20230501.044800   , step     32; iteration    1; sweep 1 grid   1
++time 20230501.044800   , step     32; iteration    1; sweep 2 grid   1
++time 20230501.044800   , step     32; iteration    1; sweep 3 grid   1
++time 20230501.044800   , step     32; iteration    1; sweep 4 grid   1
+ accuracy OK in  72.16 % of wet grid points ( 99.50 % required)
+
++time 20230501.044800   , step     32; iteration    2; sweep 1 grid   1
++time 20230501.044800   , step     32; iteration    2; sweep 2 grid   1
++time 20230501.044800   , step     32; iteration    2; sweep 3 grid   1
++time 20230501.044800   , step     32; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    26     27       0.24       0.28       0.14
+     1    25     26       0.24       0.27       0.14
+     1    24     25       0.24       0.27       0.13
+     1    23     24       0.24       0.27       0.13
+     1    22     23       0.24       0.27       0.13
+     1    21     22       0.24       0.27       0.13
+     1    20     21       0.24       0.28       0.17
+     1    19     20       0.24       0.28       0.16
+     1    18     19       0.24       0.28       0.15
+     1    17     18       0.24       0.28       0.15
+     1    16     17       0.24       0.28       0.15
+     1    15     16       0.24       0.28       0.15
+     1    14     15       0.24       0.28       0.15
+     1    13     14       0.24       0.27       0.15
+     1    12     13       0.24       0.27       0.14
+     1    11     12       0.24       0.27       0.14
+     1    10     11       0.24       0.27       0.13
+     1     9     10       0.24       0.27       0.13
+     1     8      9       0.24       0.27       0.13
+     1     7      8       0.22       0.25       0.12
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.045700      in sec:      17820.
++time 20230501.045700   , step     33; iteration    1; sweep 1 grid   1
++time 20230501.045700   , step     33; iteration    1; sweep 2 grid   1
++time 20230501.045700   , step     33; iteration    1; sweep 3 grid   1
++time 20230501.045700   , step     33; iteration    1; sweep 4 grid   1
+ accuracy OK in  71.43 % of wet grid points ( 99.50 % required)
+
++time 20230501.045700   , step     33; iteration    2; sweep 1 grid   1
++time 20230501.045700   , step     33; iteration    2; sweep 2 grid   1
++time 20230501.045700   , step     33; iteration    2; sweep 3 grid   1
++time 20230501.045700   , step     33; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.27       0.11
+     1    31     32       0.24       0.27       0.11
+     1    30     31       0.24       0.27       0.12
+     1    29     30       0.24       0.27       0.12
+     1    28     29       0.24       0.27       0.12
+     1    27     28       0.24       0.27       0.12
+     1    26     27       0.24       0.28       0.16
+     1    25     26       0.24       0.28       0.16
+     1    24     25       0.24       0.28       0.16
+     1    23     24       0.24       0.28       0.16
+     1    22     23       0.24       0.28       0.16
+     1    21     22       0.24       0.28       0.16
+     1    20     21       0.24       0.28       0.16
+     1    19     20       0.24       0.28       0.15
+     1    18     19       0.24       0.28       0.15
+     1    17     18       0.24       0.28       0.15
+     1    16     17       0.24       0.28       0.15
+     1    15     16       0.24       0.28       0.15
+     1    14     15       0.24       0.28       0.15
+     1    13     14       0.24       0.27       0.14
+     1    12     13       0.24       0.27       0.13
+     1    11     12       0.24       0.27       0.13
+     1    10     11       0.24       0.27       0.13
+     1     9     10       0.24       0.27       0.13
+     1     8      9       0.24       0.27       0.13
+     1     7      8       0.22       0.24       0.12
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.050600      in sec:      18360.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
+ Boundary data type TPAR processed, time:       21600.
++time 20230501.050600   , step     34; iteration    1; sweep 1 grid   1
++time 20230501.050600   , step     34; iteration    1; sweep 2 grid   1
++time 20230501.050600   , step     34; iteration    1; sweep 3 grid   1
++time 20230501.050600   , step     34; iteration    1; sweep 4 grid   1
+ accuracy OK in  70.74 % of wet grid points ( 99.50 % required)
+
++time 20230501.050600   , step     34; iteration    2; sweep 1 grid   1
++time 20230501.050600   , step     34; iteration    2; sweep 2 grid   1
++time 20230501.050600   , step     34; iteration    2; sweep 3 grid   1
++time 20230501.050600   , step     34; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.28       0.13
+     1    31     32       0.24       0.27       0.12
+     1    30     31       0.24       0.28       0.13
+     1    29     30       0.24       0.28       0.13
+     1    28     29       0.24       0.28       0.13
+     1    27     28       0.24       0.28       0.13
+     1    26     27       0.24       0.28       0.16
+     1    25     26       0.24       0.28       0.16
+     1    24     25       0.24       0.28       0.16
+     1    23     24       0.24       0.28       0.17
+     1    22     23       0.24       0.28       0.17
+     1    21     22       0.24       0.28       0.17
+     1    20     21       0.24       0.28       0.16
+     1    19     20       0.24       0.28       0.15
+     1    18     19       0.24       0.28       0.15
+     1    17     18       0.24       0.28       0.15
+     1    16     17       0.24       0.28       0.15
+     1    15     16       0.24       0.28       0.15
+     1    14     15       0.24       0.28       0.15
+     1    13     14       0.24       0.27       0.14
+     1    12     13       0.24       0.27       0.13
+     1    11     12       0.24       0.26       0.12
+     1    10     11       0.24       0.26       0.12
+     1     9     10       0.24       0.26       0.12
+     1     8      9       0.24       0.26       0.12
+     1     7      8       0.22       0.24       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.051500      in sec:      18900.
++time 20230501.051500   , step     35; iteration    1; sweep 1 grid   1
++time 20230501.051500   , step     35; iteration    1; sweep 2 grid   1
++time 20230501.051500   , step     35; iteration    1; sweep 3 grid   1
++time 20230501.051500   , step     35; iteration    1; sweep 4 grid   1
+ accuracy OK in  70.24 % of wet grid points ( 99.50 % required)
+
++time 20230501.051500   , step     35; iteration    2; sweep 1 grid   1
++time 20230501.051500   , step     35; iteration    2; sweep 2 grid   1
++time 20230501.051500   , step     35; iteration    2; sweep 3 grid   1
++time 20230501.051500   , step     35; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.27       0.13
+     1    31     32       0.24       0.27       0.13
+     1    30     31       0.24       0.27       0.13
+     1    29     30       0.24       0.27       0.13
+     1    28     29       0.24       0.28       0.13
+     1    27     28       0.24       0.28       0.13
+     1    26     27       0.24       0.28       0.16
+     1    25     26       0.24       0.28       0.16
+     1    24     25       0.24       0.28       0.16
+     1    23     24       0.24       0.28       0.16
+     1    22     23       0.24       0.28       0.16
+     1    21     22       0.24       0.28       0.16
+     1    20     21       0.24       0.28       0.16
+     1    19     20       0.24       0.28       0.15
+     1    18     19       0.24       0.28       0.14
+     1    17     18       0.24       0.28       0.14
+     1    16     17       0.24       0.28       0.14
+     1    15     16       0.24       0.28       0.14
+     1    14     15       0.24       0.28       0.14
+     1    13     14       0.23       0.27       0.13
+     1    12     13       0.23       0.26       0.12
+     1    11     12       0.23       0.26       0.12
+     1    10     11       0.23       0.26       0.12
+     1     9     10       0.23       0.26       0.12
+     1     8      9       0.23       0.26       0.12
+     1     7      8       0.22       0.24       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.052400      in sec:      19440.
++time 20230501.052400   , step     36; iteration    1; sweep 1 grid   1
++time 20230501.052400   , step     36; iteration    1; sweep 2 grid   1
++time 20230501.052400   , step     36; iteration    1; sweep 3 grid   1
++time 20230501.052400   , step     36; iteration    1; sweep 4 grid   1
+ accuracy OK in  69.60 % of wet grid points ( 99.50 % required)
+
++time 20230501.052400   , step     36; iteration    2; sweep 1 grid   1
++time 20230501.052400   , step     36; iteration    2; sweep 2 grid   1
++time 20230501.052400   , step     36; iteration    2; sweep 3 grid   1
++time 20230501.052400   , step     36; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.27       0.13
+     1    31     32       0.24       0.27       0.13
+     1    30     31       0.24       0.27       0.13
+     1    29     30       0.24       0.27       0.13
+     1    28     29       0.24       0.27       0.13
+     1    27     28       0.24       0.27       0.13
+     1    26     27       0.24       0.28       0.16
+     1    25     26       0.24       0.28       0.15
+     1    24     25       0.24       0.28       0.15
+     1    23     24       0.24       0.28       0.16
+     1    22     23       0.24       0.28       0.16
+     1    21     22       0.24       0.28       0.16
+     1    20     21       0.24       0.28       0.16
+     1    19     20       0.24       0.28       0.14
+     1    18     19       0.24       0.28       0.14
+     1    17     18       0.24       0.28       0.14
+     1    16     17       0.24       0.28       0.14
+     1    15     16       0.24       0.28       0.14
+     1    14     15       0.24       0.28       0.14
+     1    13     14       0.23       0.26       0.13
+     1    12     13       0.23       0.26       0.12
+     1    11     12       0.23       0.26       0.11
+     1    10     11       0.23       0.26       0.11
+     1     9     10       0.23       0.26       0.11
+     1     8      9       0.23       0.26       0.11
+     1     7      8       0.22       0.24       0.11
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.053300      in sec:      19980.
++time 20230501.053300   , step     37; iteration    1; sweep 1 grid   1
++time 20230501.053300   , step     37; iteration    1; sweep 2 grid   1
++time 20230501.053300   , step     37; iteration    1; sweep 3 grid   1
++time 20230501.053300   , step     37; iteration    1; sweep 4 grid   1
+ accuracy OK in  69.37 % of wet grid points ( 99.50 % required)
+
++time 20230501.053300   , step     37; iteration    2; sweep 1 grid   1
++time 20230501.053300   , step     37; iteration    2; sweep 2 grid   1
++time 20230501.053300   , step     37; iteration    2; sweep 3 grid   1
++time 20230501.053300   , step     37; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.27       0.14
+     1    31     32       0.24       0.27       0.13
+     1    30     31       0.24       0.27       0.13
+     1    29     30       0.24       0.27       0.14
+     1    28     29       0.24       0.27       0.14
+     1    27     28       0.24       0.27       0.14
+     1    26     27       0.24       0.27       0.16
+     1    25     26       0.24       0.27       0.15
+     1    24     25       0.24       0.27       0.15
+     1    23     24       0.24       0.27       0.15
+     1    22     23       0.24       0.27       0.15
+     1    21     22       0.24       0.27       0.15
+     1    20     21       0.24       0.28       0.15
+     1    19     20       0.24       0.28       0.14
+     1    18     19       0.24       0.27       0.14
+     1    17     18       0.24       0.27       0.14
+     1    16     17       0.24       0.27       0.14
+     1    15     16       0.24       0.27       0.14
+     1    14     15       0.24       0.27       0.14
+     1    13     14       0.23       0.26       0.12
+     1    12     13       0.23       0.26       0.11
+     1    11     12       0.23       0.26       0.11
+     1    10     11       0.23       0.26       0.11
+     1     9     10       0.23       0.26       0.11
+     1     8      9       0.23       0.26       0.11
+     1     7      8       0.22       0.24       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.054200      in sec:      20520.
++time 20230501.054200   , step     38; iteration    1; sweep 1 grid   1
++time 20230501.054200   , step     38; iteration    1; sweep 2 grid   1
++time 20230501.054200   , step     38; iteration    1; sweep 3 grid   1
++time 20230501.054200   , step     38; iteration    1; sweep 4 grid   1
+ accuracy OK in  68.82 % of wet grid points ( 99.50 % required)
+
++time 20230501.054200   , step     38; iteration    2; sweep 1 grid   1
++time 20230501.054200   , step     38; iteration    2; sweep 2 grid   1
++time 20230501.054200   , step     38; iteration    2; sweep 3 grid   1
++time 20230501.054200   , step     38; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.27       0.14
+     1    31     32       0.24       0.27       0.14
+     1    30     31       0.24       0.27       0.14
+     1    29     30       0.24       0.28       0.14
+     1    28     29       0.24       0.28       0.14
+     1    27     28       0.24       0.28       0.14
+     1    26     27       0.24       0.27       0.15
+     1    25     26       0.24       0.27       0.15
+     1    24     25       0.24       0.27       0.15
+     1    23     24       0.24       0.27       0.15
+     1    22     23       0.24       0.27       0.15
+     1    21     22       0.24       0.27       0.15
+     1    20     21       0.24       0.28       0.15
+     1    19     20       0.24       0.27       0.14
+     1    18     19       0.24       0.27       0.14
+     1    17     18       0.24       0.27       0.14
+     1    16     17       0.24       0.27       0.14
+     1    15     16       0.24       0.27       0.14
+     1    14     15       0.24       0.27       0.14
+     1    13     14       0.23       0.26       0.12
+     1    12     13       0.23       0.26       0.11
+     1    11     12       0.23       0.26       0.11
+     1    10     11       0.23       0.26       0.10
+     1     9     10       0.23       0.26       0.10
+     1     8      9       0.23       0.26       0.10
+     1     7      8       0.22       0.24       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.055100      in sec:      21060.
++time 20230501.055100   , step     39; iteration    1; sweep 1 grid   1
++time 20230501.055100   , step     39; iteration    1; sweep 2 grid   1
++time 20230501.055100   , step     39; iteration    1; sweep 3 grid   1
++time 20230501.055100   , step     39; iteration    1; sweep 4 grid   1
+ accuracy OK in  69.00 % of wet grid points ( 99.50 % required)
+
++time 20230501.055100   , step     39; iteration    2; sweep 1 grid   1
++time 20230501.055100   , step     39; iteration    2; sweep 2 grid   1
++time 20230501.055100   , step     39; iteration    2; sweep 3 grid   1
++time 20230501.055100   , step     39; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.28       0.15
+     1    31     32       0.24       0.27       0.15
+     1    30     31       0.24       0.28       0.15
+     1    29     30       0.24       0.28       0.15
+     1    28     29       0.24       0.28       0.15
+     1    27     28       0.24       0.28       0.15
+     1    26     27       0.24       0.27       0.16
+     1    25     26       0.24       0.27       0.15
+     1    24     25       0.24       0.27       0.15
+     1    23     24       0.24       0.27       0.15
+     1    22     23       0.24       0.27       0.15
+     1    21     22       0.24       0.27       0.15
+     1    20     21       0.24       0.28       0.15
+     1    19     20       0.24       0.27       0.14
+     1    18     19       0.24       0.27       0.14
+     1    17     18       0.24       0.27       0.14
+     1    16     17       0.24       0.27       0.14
+     1    15     16       0.24       0.27       0.14
+     1    14     15       0.24       0.27       0.14
+     1    13     14       0.23       0.26       0.12
+     1    12     13       0.23       0.26       0.11
+     1    11     12       0.23       0.26       0.10
+     1    10     11       0.23       0.26       0.10
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.060000      in sec:      21600.
++time 20230501.060000   , step     40; iteration    1; sweep 1 grid   1
++time 20230501.060000   , step     40; iteration    1; sweep 2 grid   1
++time 20230501.060000   , step     40; iteration    1; sweep 3 grid   1
++time 20230501.060000   , step     40; iteration    1; sweep 4 grid   1
+ accuracy OK in  69.14 % of wet grid points ( 99.50 % required)
+
++time 20230501.060000   , step     40; iteration    2; sweep 1 grid   1
++time 20230501.060000   , step     40; iteration    2; sweep 2 grid   1
++time 20230501.060000   , step     40; iteration    2; sweep 3 grid   1
++time 20230501.060000   , step     40; iteration    2; sweep 4 grid   1
+ accuracy OK in  98.63 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     1    32     33       0.24       0.28       0.16
+     1    31     32       0.24       0.28       0.16
+     1    30     31       0.24       0.28       0.16
+     1    29     30       0.24       0.28       0.16
+     1    28     29       0.24       0.28       0.17
+     1    27     28       0.24       0.28       0.17
+     1    26     27       0.23       0.27       0.16
+     1    25     26       0.23       0.27       0.15
+     1    24     25       0.23       0.27       0.15
+     1    23     24       0.23       0.27       0.15
+     1    22     23       0.23       0.27       0.15
+     1    21     22       0.23       0.27       0.15
+     1    20     21       0.24       0.28       0.16
+     1    19     20       0.24       0.27       0.14
+     1    18     19       0.24       0.27       0.14
+     1    17     18       0.24       0.27       0.14
+     1    16     17       0.24       0.27       0.14
+     1    15     16       0.24       0.27       0.14
+     1    14     15       0.24       0.27       0.14
+     1    13     14       0.23       0.26       0.12
+     1    12     13       0.23       0.26       0.11
+
+ ** Warning          : no output requested
+    
+ 
+    
+ &HOTFILE 'karimun.hot'
+ 
+    
+ STOP

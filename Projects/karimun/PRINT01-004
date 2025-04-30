@@ -1,0 +1,510 @@
+1
+
+                    Execution started at 20250430.163045         
+
+
+
+                    ---------------------------------------
+                                     SWAN
+                    SIMULATION OF WAVES IN NEAR SHORE AREAS
+                             VERSION NUMBER 41.31               
+                    ---------------------------------------
+
+
+    
+ 
+    
+ $
+    
+ 
+    
+ PROJECT 'KARIMUN' '001'
+    
+ SET 0 MAXERR 99  NAUTICAL
+    
+ &MODE NONSTationary TWODimensional
+ &COORDinates SPHE CCM
+ 
+    
+ MODE NONSTATIONARY TWODIMENSIONAL
+    
+ &SET DEPMIN 0.05 INRHOG 1 NAUTICAL PWTAIL 5
+ COORDINATES SPHERICAL
+    
+ 
+    
+ 
+    
+ && KEYWORD for number of nested SWAN grids.
+ NSGRIDS 2
+    
+ 
+    
+ && KEYWORDS TO CREATE AND READ COMPUTATIONAL GRID &&
+ CGRID CURVILINEAR 55 38 EXC 9.999000e+003 9.999000e+003 CIRCLE 24 0.04 1.0 28
+ Resolution in sigma-space: df/f =  0.1218
+    
+ READGRID COORDINATES 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan9km.grd' 3 0 0 FREE
+    
+ 
+    
+ && KEYWORDS TO CREATE AND READ BATHYMETRY GRID &&
+ INPGRID BOTTOM CURVILINEAR 0 0 55 38 EXC 9.999000e+003
+    
+ READINP BOTTOM 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan9km.bot' 3 0 FREE
+    
+ 
+    
+ $******************** ERA5 Wind  *********************************************
+    
+ 
+    
+ && KEYWORD TO CREATE WIND GRID &&
+ &INPGRID WIND REGULAR 100 -11 0 111 106 0.1 0.1 &
+ &NONSTATIONARY 20221229.000000 6 HR 20221230.000000
+ &READINP WIND 1 '/home/tr16/COAWST_3.7/Projects/karimun/swan' 3 0 FREE
+ 
+    
+ $ Boundary and Initial Conditions ****************************************
+    
+ & BOUND SHAPESPEC JONSWAP PEAK DSPR DEGREES
+ & BOUNd SHAPespec JONswap 1.1 PEAK POWer
+ 
+    
+ &BOUndspec SEGMent XY 108.600000000000 -3.433689756915 109.086037999545 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 108.600000000000 -6.500000000000 109.086037999545 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 109.167044332803 -3.433689756915 109.572075999091 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_2.txt'
+ &BOUndspec SEGMent XY 109.167044332803 -6.500000000000 109.572075999091 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_2.txt'
+ &BOUndspec SEGMent XY 109.653082332348 -3.433689756915 110.139120331894 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_3.txt'
+ &BOUndspec SEGMent XY 109.653082332348 -6.500000000000 110.139120331894 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_3.txt'
+ &BOUndspec SEGMent XY 110.220126665151 -3.433689756915 110.625158331439 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_4.txt'
+ &BOUndspec SEGMent XY 110.220126665151 -6.500000000000 110.625158331439 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_4.txt'
+ &BOUndspec SEGMent XY 110.706164664697 -3.433689756915 111.111196330985 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_5.txt'
+ &BOUndspec SEGMent XY 110.706164664697 -6.500000000000 111.111196330985 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_5.txt'
+ &BOUndspec SEGMent XY 111.192202664242 -3.433689756915 111.597234330530 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_6.txt'
+ &BOUndspec SEGMent XY 111.192202664242 -6.500000000000 111.597234330530 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_6.txt'
+ &BOUndspec SEGMent XY 111.678240663788 -3.433689756915 112.083272330076 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_7.txt'
+ &BOUndspec SEGMent XY 111.678240663788 -6.500000000000 112.083272330076 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_7.txt'
+ &BOUndspec SEGMent XY 112.164278663333 -3.433689756915 113.055348329167 -3.433689756915 CONstant File 'tpar/BCNorth_Jun2023_8.txt'
+ &BOUndspec SEGMent XY 112.164278663333 -6.500000000000 113.055348329167 -6.500000000000 CONstant File 'tpar/BCSouth_Jun2023_8.txt'
+ BOUndspec SEGMent XY 113.055348329167 -6.500000000000 113.055348329167 -6.016860102273 CONSTANT  FILE 'tpar/BCEast_Jun2023_1.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -6.500000000000 108.600000000000 -6.016860102273 CONSTANT  FILE 'tpar/BCWest_Jun2023_1.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -5.936294082141 113.055348329167 -5.533290416212 CONSTANT  FILE 'tpar/BCEast_Jun2023_2.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -5.936294082141 108.600000000000 -5.533290416212 CONSTANT  FILE 'tpar/BCWest_Jun2023_2.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -5.452656075237 113.055348329167 -4.968628067937 CONSTANT  FILE 'tpar/BCEast_Jun2023_3.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -5.452656075237 108.600000000000 -4.968628067937 CONSTANT  FILE 'tpar/BCWest_Jun2023_3.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -4.887921220014 113.055348329167 -4.484244315258 CONSTANT  FILE 'tpar/BCEast_Jun2023_4.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -4.887921220014 108.600000000000 -4.484244315258 CONSTANT  FILE 'tpar/BCWest_Jun2023_4.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -4.403481515868 113.055348329167 -3.999539199045 CONSTANT  FILE 'tpar/BCEast_Jun2023_5.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -4.403481515868 108.600000000000 -3.999539199045 CONSTANT  FILE 'tpar/BCWest_Jun2023_5.txt'
+    
+ BOUndspec SEGMent XY 113.055348329167 -3.918726189982 113.055348329167 -3.433689756915 CONSTANT  FILE 'tpar/BCEast_Jun2023_6.txt'
+    
+ BOUndspec SEGMent XY 108.600000000000 -3.918726189982 108.600000000000 -3.433689756915 CONSTANT  FILE 'tpar/BCWest_Jun2023_6.txt'
+    
+ 
+    
+ &BOUndspec SEGMent XY 108.5 -3.4 113.1 -3.4 CONstant File 'tpar/BCNorth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY 108.5 -6.6 113.1 -6.6 CONstant File 'tpar/BCSouth_Jun2023_1.txt'
+ &BOUndspec SEGMent XY -3.4 113.1 -6.6 113.1 CONstant File 'tpar/BCEast_Jun2023_1.txt'
+ &BOUndspec SEGMent XY -3.4 108.5 -6.6 108.5 CONstant File 'tpar/BCWest_Jun2023_1.txt'
+ 
+    
+ &INITIAL DEFAULT
+ 						
+    
+ $ PHYSICS  ****************************************
+    
+ &BREAKING CONSTANT 1.0 0.73
+ BREaking CONstant gamma .78
+    
+ TRIad
+    
+ FRICTION
+    
+ &FRICTION MADSEN 0.05
+ OFF QUAD
+    
+ &GEN3 KOMEN
+ GEN3 JANSSEN 4.5 0.9
+    
+ &WCAP KOM 2.36E-5 3.02E-3 2.0 1.0 1.0
+ PROP BSBT
+    
+ NUM ACCUR NONSTAT MXITNS=2
+    
+ 
+    
+ $************************* Outputs ********************************
+    
+ $ Output/Satellite  Altimeter Tracks
+    
+ 
+    
+ &RESTART 'swan_ref3km_rst.dat' FREE 1 HR
+ 
+    
+ $
+    
+ 
+    
+ & This command orders SWAN to start the computation(s).
+ COMPUTE NONSTAT 20230501.000000 540 SEC 20230501.060000
+ ** Warning          : Limiter is de-activated in case of no quadruplets
+ ** Warning          : no output requested
+ Time of computation ->  20230501.000900      in sec:        540.
+
+----------------------------------------------------------------
+                  COMPUTATIONAL PART OF SWAN
+----------------------------------------------------------------
+
+ Gridresolution       : MXC              17 MYC             39
+                      : MCGRD           664
+                      : MSC              29 MDC             24
+                      : MTC              40
+                      : NSTATC            1 ITERMX           2
+ Propagation flags    : ITFRE             1 IREFR            1
+ Source term flags    : IBOT              1 ISURF            1
+                      : IWCAP             2 IWIND            0
+                      : ITRIAD           11 IQUAD            2
+                      : IVEG              0 ITURBV           0
+                      : IMUD              0 IICE             0
+ Spatial step         : DX       0.0000E+00 DY      0.0000E+00
+ Spectral bin         : df/f     0.1218E+00 DDIR    0.1500E+02
+ Physical constants   : GRAV     0.9810E+01 RHO     0.1025E+04
+ Wind input           : WSPEED   0.0000E+00 DIR     0.0000E+00
+                      : ICEWIND  0.00
+ Tail parameters      : E(f)     0.5000E+01 E(k)    0.2500E+01
+                      : A(f)     0.6000E+01 A(k)    0.3000E+01
+ Accuracy parameters  : DREL     0.1000E-01 NPNTS   0.9950E+02
+                      : DHOVAL   0.5000E-02 DTOVAL  0.1000E+04
+                      : GRWMX    0.1000E+00
+ Drying/flooding      : LEVEL    0.0000E+00 DEPMIN  0.5000E-01
+ The nautical  convention for wind and wave directions is used
+ Scheme for geographic propagation is BSBT  
+ Scheme geogr. space  : PROPSC            1 ICMAX            5
+ Scheme spectral space: CSS      0.5000E+00 CDD     0.5000E+00
+ Current is off
+ Quadruplets          : IQUAD             2
+                      : LAMBDA   0.2500E+00 CNL4    0.3000E+08
+                      : CSH1     0.5500E+01 CSH2    0.8330E+00
+                      : CSH3    -0.1250E+01
+ Maximum Ursell nr for Snl4 :    0.1000E+02
+ Triads               : ITRIAD           11 TRFAC   0.5000E-01
+                      : CUTFR    0.2500E+01 URCRI   0.2000E+00
+ Minimum Ursell nr for Snl3 :    0.1000E-01
+ JONSWAP (`73)        : GAMMA    0.3800E-01
+ Vegetation is off
+ Turbulence is off
+ Fluid mud is off
+ Dissipation by sea ice is off
+ W-cap Janssen (`90)  : CFJANS   0.4500E+01 DELTA   0.9000E+00
+ Battjes&Janssen (`78): ALPHA    0.1000E+01 GAMMA   0.7800E+00
+ Set-up is off
+ Diffraction is off
+ Janssen (`89,`90)    : ALPHA    0.1000E-01 KAPPA   0.4100E+00
+ Janssen (`89,`90)    : RHOA     0.1280E+01 RHOW    0.1025E+04
+
+ 1st and 2nd gen. wind: CF10     0.1880E+03 CF20    0.5900E+00
+                      : CF30     0.1200E+00 CF40    0.2500E+03
+                      : CF50     0.2300E-02 CF60   -0.2230E+00
+                      : CF70     0.0000E+00 CF80   -0.5600E+00
+                      : RHOAW    0.1249E-02 EDMLPM  0.3600E-02
+                      : CDRAG    0.1230E-02 UMIN    0.1000E+01
+                      : LIM_PM   0.1300E+00
+
+ accuracy OK in  84.80 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  99.45 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.001800      in sec:       1080.
+ accuracy OK in  84.75 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in 100.00 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.002700      in sec:       1620.
+ accuracy OK in  83.10 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.63 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.003600      in sec:       2160.
+ accuracy OK in  82.60 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.004500      in sec:       2700.
+ accuracy OK in  81.41 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.005400      in sec:       3240.
+ accuracy OK in  81.32 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.010300      in sec:       3780.
+ accuracy OK in  79.85 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.011200      in sec:       4320.
+ accuracy OK in  81.18 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.012100      in sec:       4860.
+ accuracy OK in  80.31 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.013000      in sec:       5400.
+ accuracy OK in  79.62 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.013900      in sec:       5940.
+ accuracy OK in  77.66 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.014800      in sec:       6480.
+ accuracy OK in  76.83 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.015700      in sec:       7020.
+ accuracy OK in  76.24 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.020600      in sec:       7560.
+ accuracy OK in  76.10 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.021500      in sec:       8100.
+ accuracy OK in  75.50 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.022400      in sec:       8640.
+ accuracy OK in  75.69 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.023300      in sec:       9180.
+ accuracy OK in  75.05 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.024200      in sec:       9720.
+ accuracy OK in  74.73 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.025100      in sec:      10260.
+ accuracy OK in  73.49 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.030000      in sec:      10800.
+ accuracy OK in  73.44 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.030900      in sec:      11340.
+ accuracy OK in  74.22 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.31 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.031800      in sec:      11880.
+ accuracy OK in  74.40 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.032700      in sec:      12420.
+ accuracy OK in  73.90 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.033600      in sec:      12960.
+ accuracy OK in  74.50 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.26 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.034500      in sec:      13500.
+ accuracy OK in  75.73 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.49 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.035400      in sec:      14040.
+ accuracy OK in  74.63 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.040300      in sec:      14580.
+ accuracy OK in  74.36 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.041200      in sec:      15120.
+ accuracy OK in  73.53 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.042100      in sec:      15660.
+ accuracy OK in  73.03 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.043000      in sec:      16200.
+ accuracy OK in  71.93 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.81 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.043900      in sec:      16740.
+ accuracy OK in  71.70 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.044800      in sec:      17280.
+ accuracy OK in  72.16 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.045700      in sec:      17820.
+ accuracy OK in  71.43 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.53 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.050600      in sec:      18360.
+ accuracy OK in  70.74 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.051500      in sec:      18900.
+ accuracy OK in  70.24 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.052400      in sec:      19440.
+ accuracy OK in  69.60 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.053300      in sec:      19980.
+ accuracy OK in  69.37 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.054200      in sec:      20520.
+ accuracy OK in  68.82 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.055100      in sec:      21060.
+ accuracy OK in  69.00 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.86 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+ Time of computation ->  20230501.060000      in sec:      21600.
+ accuracy OK in  69.14 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in  98.63 % of wet grid points ( 99.50 % required)
+
+
+ ** Warning          : no output requested
+    
+ 
+    
+ &HOTFILE 'karimun.hot'
+ 
+    
+ STOP
